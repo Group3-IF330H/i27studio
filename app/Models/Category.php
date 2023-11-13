@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Client extends Model
+class Category extends Model
 {
     use HasFactory;
     public function projects(): HasMany
     {
-        return $this->hasMany(Project::class, 'id_client');
+        return $this->hasMany(Project::class, 'id_category');
     }
 }
