@@ -2,7 +2,6 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 
 const ClientSection = (props) => {
-    console.log(props);
     return (
         <>
             <div className="relative py-16 gradient">

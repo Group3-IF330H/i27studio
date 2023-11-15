@@ -9,6 +9,7 @@ const ServiceSection = () => {
                     initial={{ translateY: 100, opacity: 0, zIndex: 20 }}
                     whileInView={{ translateY: 0, opacity: 1 }}
                     transition={{ duration: 2, type: "spring" }}
+                    viewport={{ once: true }}
                     className="absolute text-4xl -top-4 md:-top-8 xl:-top-12 md:text-7xl xl:text-8xl"
                 >
                     The Way We Do
@@ -17,6 +18,7 @@ const ServiceSection = () => {
                     initial={{ translateY: 100, opacity: 0, zIndex: 10 }}
                     whileInView={{ translateY: 0, opacity: 1 }}
                     transition={{ duration: 1, delay: 0.5, type: "spring" }}
+                    viewport={{ once: true }}
                     className="grid gap-5 px-10 pt-8 pb-16 bg-white shadow-lg md:pt-16 xl:pt-24 md:grid-cols-2 lg:grid-cols-3 service-item"
                 >
                     <div className="flex flex-col justify-center gap-5 p-6 text-center">
