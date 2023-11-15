@@ -18,7 +18,6 @@ class ProjectFactory extends Factory
     {
         return [
             'nama_project' => fake()->words(3, true),
-            'kategori_project' => fake()->word(),
             'id_client' => rand(1, 10),
             'id_category' => rand(1, 10)
         ];

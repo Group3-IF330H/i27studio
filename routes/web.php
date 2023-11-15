@@ -21,7 +21,7 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return Inertia::render('Homepage', [
         'client' => Client::all(),
-        'project' => Project::all()
+        'project' => Project::with(['Category', 'Client'])->get()
     ]);
 });
 

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const ServiceSection = () => {
     return (
         <>
-            <div className="relative px-12 mt-8 mb-32 md:mt-56 section-service">
+            <div className="relative px-8 mt-8 mb-32 md:mt-56 section-service">
                 <motion.h1
                     initial={{ translateY: 100, opacity: 0, zIndex: 20 }}
                     whileInView={{ translateY: 0, opacity: 1 }}
@@ -19,7 +19,7 @@ const ServiceSection = () => {
                     whileInView={{ translateY: 0, opacity: 1 }}
                     transition={{ duration: 1, delay: 0.5, type: "spring" }}
                     viewport={{ once: true }}
-                    className="grid gap-5 px-10 pt-8 pb-16 bg-white shadow-lg md:pt-16 xl:pt-24 md:grid-cols-2 lg:grid-cols-3 service-item"
+                    className="grid gap-5 px-8 pt-8 pb-16 bg-white shadow-lg md:pt-16 xl:pt-24 md:grid-cols-2 lg:grid-cols-3 service-item"
                 >
                     <div className="flex flex-col justify-center gap-5 p-6 text-center">
                         <div className="flex items-center justify-center text-xl md:h-20 item-heading">

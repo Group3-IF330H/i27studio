@@ -49,7 +49,11 @@ const Homepage = (props) => {
             >
                 <ClientSection client={client} />
                 <ServiceSection />
-                <FeaturedProjects />
+                <div className="flex flex-col gap-72">
+                    {project.map((data, index) => {
+                        return <FeaturedProjects key={index} project={data} />;
+                    })}
+                </div>
                 <div className="flex items-center justify-center h-screen to-all-projects">
                     <span className="xl:text-[8rem] md:text-6xl text-4xl pb-3 text-[#000] border-b-4 border-[#000]">
                         SEE ALL PROJECTS
