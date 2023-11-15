@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Client;
+use App\Models\Employee;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -21,5 +22,6 @@ class DatabaseSeeder extends Seeder
         Client::factory(10)->create();
         Category::factory(10)->create();
         Project::factory(10)->create();
+        Employee::factory(10)->create();
     }
 }

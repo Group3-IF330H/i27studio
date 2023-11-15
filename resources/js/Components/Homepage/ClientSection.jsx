@@ -19,7 +19,7 @@ const ClientSection = (props) => {
                                     <div className="w-full p-2 bg-white shadow-md img">
                                         <img
                                             src={`../storage/img/clients/${data?.logo_client}`}
-                                            className="h-24 "
+                                            className="h-24"
                                         />
                                     </div>
                                 </div>

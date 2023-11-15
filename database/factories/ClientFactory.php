@@ -16,10 +16,11 @@ class ClientFactory extends Factory
      */
     public function definition(): array
     {
+        static $id = 1;
         return [
             'nama_client' => fake()->company(),
             'lokasi_client' => fake()->city(),
-            'logo_client' => 'logo1.jpg'
+            'logo_client' => 'logo' . $id++ . '.webp'
         ];
     }
 }
