@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ClientController extends Controller
 {
@@ -15,20 +16,18 @@ class ClientController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
+    /* 
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $client = new Client();
+        $client->nama_client = $request->nama_client;
+        $client->lokasi_client = $request->lokasi_client;
+        $client->logo_client = $request->logo_client;
+        $client->save();
+        return redirect()->back()->with('message', 'Data client telah masuk!');
+
     }
 
     /**
@@ -42,24 +41,32 @@ class ClientController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Client $client)
+    public function edit(Client $client, Request $request)
     {
-        //
+        return Inertia::render('EditClient', [
+            'myClient' => $client->find($request->id)
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request)
     {
-        //
+        Client::where('id', $request->id)->update([
+            'nama_client'=> $request->nama_client,
+            'lokasi_client'=>$request->lokasi_client,
+            'logo_client'=>$request->logo_client,
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Client $client)
+    public function destroy(Request $request)
     {
-        //
+        $client = Client::find($request->id);
+        $client = delete();
+        return redirect()->back()->with('message', 'Data Client berhasil dihapus');
     }
 }
