@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const ServiceSection = () => {
     return (
         <>
-            <div className="relative px-8 mt-8 mb-32 md:mt-56 section-service">
+            <div className="relative px-8 mt-8 mb-32 md:mt-24 section-service">
                 <motion.h1
                     initial={{ translateY: 100, opacity: 0, zIndex: 20 }}
                     whileInView={{ translateY: 0, opacity: 1 }}

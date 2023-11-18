@@ -35,7 +35,7 @@ const Homepage = (props) => {
             <PageLayout
                 title="Homepage"
                 heading={
-                    <span>
+                    <span className="text-[3rem] xl:text-[11.25rem]">
                         WE ARE <br />
                         ARCHITECT CONSULTANT
                     </span>
