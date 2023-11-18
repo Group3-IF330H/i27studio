@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClientController;
 use App\Models\Client;
+use App\Models\Employee;
 use App\Models\Project;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,10 @@ Route::get('/', function () {
         'client' => Client::all(),
         'project' => Project::with(['Category', 'Client'])->get()
     ]);
+});
+
+Route::get('/about', function () {
+    return Inertia::render('About', ['data' => Employee::all()]);
 });
 
 

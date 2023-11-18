@@ -3,8 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-image: url(../../public/bg.jpg);
+    background-image: url(../../public/background.webp);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
