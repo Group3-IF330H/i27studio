@@ -2,11 +2,12 @@ import PageLayout from "@/Layouts/PageLayout";
 import React from "react";
 import ServiceSection from "@/Components/Homepage/ServiceSection";
 import ClientSection from "@/Components/Homepage/ClientSection";
-import { animate, motion, useMotionValue, useTransform } from "framer-motion";
+import { animate, useMotionValue, useTransform } from "framer-motion";
 import { useEffect } from "react";
 import FeaturedProjects from "@/Components/Homepage/FeaturedProjects";
 import TagHomepage from "@/Components/Homepage/TagHomepage";
 import TextReveal from "@/Components/TextReveal";
+import { Link } from "@inertiajs/react";
 
 const Homepage = (props) => {
     const client = props.client;
@@ -57,9 +58,11 @@ const Homepage = (props) => {
                 </div>
                 <div className="flex items-center justify-center h-screen to-all-projects">
                     <TextReveal>
-                        <span className="xl:text-[8rem] md:text-6xl text-4xl pb-3 text-[#000] border-b-4 border-[#000]">
-                            SEE ALL PROJECTS
-                        </span>
+                        <Link href="/projects">
+                            <span className="xl:text-[8rem] md:text-6xl text-4xl pb-3 text-[#000] border-b-4 border-[#000]">
+                                SEE ALL PROJECTS
+                            </span>
+                        </Link>
                     </TextReveal>
                 </div>
             </PageLayout>
