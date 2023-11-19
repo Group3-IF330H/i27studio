@@ -1,12 +1,6 @@
 import PageLayout from "@/Layouts/PageLayout";
-import React, { useRef } from "react";
-import {
-    useViewportScroll,
-    motion,
-    useScroll,
-    useTransform,
-} from "framer-motion";
-import {} from "framer-motion";
+import React from "react";
+import { useScroll, useTransform } from "framer-motion";
 import CompanyProfile from "@/Components/About/CompanyProfile";
 import TeamSection from "@/Components/About/TeamSection";
 import VisionMission from "@/Components/About/VisionMission";

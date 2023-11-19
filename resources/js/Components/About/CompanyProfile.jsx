@@ -12,7 +12,7 @@ const CompanyProfile = (props) => {
             />
             <div className="container relative pb-8 mt-8 sm:px-6 company-profile-section">
                 <motion.h1
-                    className="absolute hidden lg:block md:right-0 text-8xl"
+                    className="absolute hidden lg:block md:right-0 text-8xl -z-30"
                     style={{ y: props.y4, rotate: 90, x: 20 }}
                 >
                     Company <br /> Profile

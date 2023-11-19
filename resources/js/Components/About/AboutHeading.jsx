@@ -11,6 +11,9 @@ const AboutHeading = (props) => {
                         className="object-cover xl:w-[70%] w-[90%] h-[40rem]"
                         style={{ y: props.y1, x: -50 }}
                         loading="lazy"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 1.5 }}
                     />
                 </div>
                 <div className="relative text">

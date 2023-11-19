@@ -25,7 +25,14 @@ const TeamSection = (props) => {
                         spaces that inspire.
                     </p>
                 </div>
-                <hr className="border-2 border-orange-400 border-double sm:w-[80%]" />
+                <motion.hr
+                    className="border-2 border-orange-400 border-double sm:w-[80%]"
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    transition={{ duration: 2, delay: 1 }}
+                    style={{ originX: 0 }}
+                    viewport={{ once: true }}
+                />
             </div>
             <div className="flex flex-wrap md:justify-start justify-center gap-y-8 md:gap-y-16 image-team md:w-[80%]">
                 {props?.employee.map((data, index) => {
@@ -34,20 +41,46 @@ const TeamSection = (props) => {
                             key={index}
                             className="flex flex-col justify-center person-image xl:basis-1/3 md:basis-1/2"
                         >
-                            <img
+                            <motion.img
                                 src="../storage/img/about/player.jpg"
                                 alt="team"
                                 className="object-cover shadow-lg w-72"
                                 loading="lazy"
+                                initial={{ translateY: 200, opacity: 0 }}
+                                whileInView={{ translateY: 0, opacity: 1 }}
+                                transition={{
+                                    duration: 1.5,
+                                    type: "spring",
+                                    delay: index * 0.1,
+                                }}
+                                viewport={{ once: true }}
                             />
-                            <div className="mt-4 detail">
+                            <motion.div
+                                className="mt-4 detail"
+                                initial={{
+                                    opacity: 0,
+                                    translateY: -20,
+                                    zIndex: -50,
+                                }}
+                                whileInView={{
+                                    opacity: 1,
+                                    translateY: 0,
+                                    zIndex: -50,
+                                }}
+                                transition={{
+                                    duration: 1.5,
+                                    type: "spring",
+                                    delay: 0.3,
+                                }}
+                                viewport={{ once: true }}
+                            >
                                 <div className="text-xl name">
                                     <h1>{data?.nama}</h1>
                                 </div>
                                 <div className="font-normal job opacity-40">
                                     <h1>{data?.jabatan}</h1>
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
                     );
                 })}
