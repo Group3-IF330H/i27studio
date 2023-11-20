@@ -31,6 +31,9 @@ Route::get('/about', function () {
     return Inertia::render('About', ['data' => Employee::all()]);
 });
 
+Route::get('/contact', function () {
+    return Inertia::render('Contact');
+});
 
 Route::get('/welcome', function () {
     return Inertia::render('Welcome', [
