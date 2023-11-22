@@ -33,7 +33,7 @@ const About = (props) => {
                     <AboutHeading y1={y1} y2={y2} />
                     <VisionMission />
                     <TeamSection employee={employee} y3={y3} />
-                    <CompanyProfile y4={y4} />
+                    <CompanyProfile employee={employee} y4={y4} />
                     <div className="flex items-center justify-center h-screen to-contact">
                         <TextReveal>
                             <Link href="/contact">
