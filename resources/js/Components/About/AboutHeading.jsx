@@ -7,7 +7,7 @@ const AboutHeading = (props) => {
             <div className="relative w-full pb-52 parallax h-max">
                 <div className="relative image">
                     <motion.img
-                        src="../storage/img/about/1.jpeg"
+                        src="../storage/img/about/kantor/K-02.jpg"
                         className="object-cover xl:w-[70%] w-[90%] h-[40rem]"
                         style={{ y: props.y1, x: -50 }}
                         loading="lazy"
@@ -18,7 +18,7 @@ const AboutHeading = (props) => {
                 </div>
                 <div className="relative text">
                     <motion.h1
-                        className="absolute text-4xl md:text-5xl xl:text-6xl w-max h-max"
+                        className="absolute text-4xl text-white md:text-5xl xl:text-6xl w-max h-max"
                         style={{ y: props.y2, rotate: 90 }}
                     >
                         Quality and Trusted <br />
