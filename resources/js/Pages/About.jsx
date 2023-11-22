@@ -5,6 +5,8 @@ import CompanyProfile from "@/Components/About/CompanyProfile";
 import TeamSection from "@/Components/About/TeamSection";
 import VisionMission from "@/Components/About/VisionMission";
 import AboutHeading from "@/Components/About/AboutHeading";
+import TextReveal from "@/Components/TextReveal";
+import { Link } from "@inertiajs/react";
 
 const About = (props) => {
     const { scrollY } = useScroll();
@@ -31,7 +33,16 @@ const About = (props) => {
                     <AboutHeading y1={y1} y2={y2} />
                     <VisionMission />
                     <TeamSection employee={employee} y3={y3} />
-                    <CompanyProfile y4={y4} />
+                    <CompanyProfile employee={employee} y4={y4} />
+                    <div className="flex items-center justify-center h-screen to-contact">
+                        <TextReveal>
+                            <Link href="/contact">
+                                <span className="xl:text-[8rem] md:text-6xl text-4xl pb-3 text-[#000] border-b-4 border-[#000]">
+                                    Contact Us?
+                                </span>
+                            </Link>
+                        </TextReveal>
+                    </div>
                 </div>
             </PageLayout>
         </>
