@@ -42,7 +42,7 @@ const TeamSection = (props) => {
                             className="flex flex-col justify-center person-image xl:basis-1/3 md:basis-1/2"
                         >
                             <motion.img
-                                src="../storage/img/about/player.jpg"
+                                src={`../storage/img/about/anggota/${data?.foto}`}
                                 alt="team"
                                 className="object-cover shadow-lg w-72"
                                 loading="lazy"
