@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('gambar_project')->nullable();
             $table->integer('id_client')->unsigned();
             $table->integer('id_category')->unsigned();
-            $table->foreign('id_category')->references('id')->on('categories');
-            $table->foreign('id_client')->references('id')->on('clients');
+            $table->foreign('id_category')->references('id')->on('categories')->onUpdate('cascade');
+            $table->foreign('id_client')->references('id')->on('clients')->onUpdate('cascade');
             $table->timestamps();
         });
     }
