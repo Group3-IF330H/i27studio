@@ -59,9 +59,10 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/client', [ClientController::class, 'store'])->name('client.create');
+    Route::get('/client', [ClientController::class, 'show'])->name('client.show');
+    Route::post('/client/create', [ClientController::class, 'store'])->name('client.create');
     Route::get('/client/edit', [ClientController::class, 'edit'])->name('client.edit');
-    Route::patch('/client/update', [ClientController::class, 'update'])->name('client.update');
+    Route::post('/client/update', [ClientController::class, 'update'])->name('client.update');
     Route::delete('/client/delete', [ClientController::class, 'destroy'])->name('client.destroy');
 });
 
