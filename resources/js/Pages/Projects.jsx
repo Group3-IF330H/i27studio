@@ -49,7 +49,7 @@ const Projects = (props) => {
                         {props.project.map((data, index) => {
                             return (
                                 <div className="project" key={index}>
-                                    <div className="mb-4 nama-client">
+                                    <div className="mb-4 text-3xl nama-client">
                                         {data.client.nama_client}
                                     </div>
                                     <div className="relative overflow-hidden h-96 card bg-slate-300">
@@ -63,7 +63,27 @@ const Projects = (props) => {
                                             alt="projects"
                                             className="object-cover object-center w-full h-full"
                                         />
-                                        <div className="absolute w-[90%] left-0 right-0 mx-auto bottom-0 mb-4 h-4 bg-pink-300 z-50"></div>
+                                        <div className="absolute px-4 py-4 w-[90%] left-0 right-0 mx-auto bottom-0 mb-6 h-max bg-white z-50 flex justify-between">
+                                            <div className="kategori">
+                                                <h1 className="text-lg">
+                                                    Category
+                                                </h1>
+                                                <p className="font-normal opacity-50">
+                                                    {
+                                                        data.category
+                                                            .nama_category
+                                                    }
+                                                </p>
+                                            </div>
+                                            <div className="text-right lokasi">
+                                                <h1 className="text-lg">
+                                                    Location
+                                                </h1>
+                                                <p className="font-normal opacity-50">
+                                                    {data.client.lokasi_client}
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             );

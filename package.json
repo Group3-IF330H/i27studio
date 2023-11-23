@@ -21,7 +21,6 @@
     },
     "dependencies": {
         "framer-motion": "^10.16.4",
-        "react-fast-marquee": "^1.6.2",
-        "resize-observer-polyfill": "^1.5.1"
+        "react-fast-marquee": "^1.6.2"
     }
 }
