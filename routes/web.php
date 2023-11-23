@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClientController;
 use App\Models\Client;
+use App\Models\Employee;
 use App\Models\Project;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,17 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/about', function () {
+    return Inertia::render('About', ['data' => Employee::all()]);
+});
+
+Route::get('/projects', function () {
+    return Inertia::render('Projects', ['project' => Project::with(['Category', 'Client'])->get()]);
+});
+
+Route::get('/contact', function () {
+    return Inertia::render('Contact');
+});
 
 Route::get('/welcome', function () {
     return Inertia::render('Welcome', [
