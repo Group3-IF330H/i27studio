@@ -7,7 +7,7 @@ import SecondaryButton from "@/Components/SecondaryButton";
 import DangerButton from "@/Components/DangerButton";
 import CreateProjectForm from "./Partials/CreateProjectForm";
 
-const Show = ({ auth, project, category, client }) => {
+const ShowProject = ({ auth, project, category, client }) => {
     const confirmingDelete = (e) => {
         const isConfirmed = confirm("Are you sure you want to delete?");
         if (!isConfirmed) {
@@ -84,6 +84,7 @@ const Show = ({ auth, project, category, client }) => {
                         responsive
                         highlightOnHover
                         pagination
+                        fixedHeader
                     />
                 </div>
             </div>
@@ -91,4 +92,4 @@ const Show = ({ auth, project, category, client }) => {
     );
 };
 
-export default Show;
+export default ShowProject;

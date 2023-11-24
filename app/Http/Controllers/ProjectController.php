@@ -20,7 +20,7 @@ class ProjectController extends Controller
         $project = Project::with(['Category', 'Client'])->get();
         $category = Category::all();
         $client = Client::all();
-        return Inertia::render('Project/Show', [
+        return Inertia::render('Project/ShowProject', [
             'project' => $project,
             'category' => $category,
             'client' => $client,
@@ -79,7 +79,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project, Request $request)
     {
-        return Inertia::render('Project/Edit', [
+        return Inertia::render('Project/EditProject', [
             'myProject' => $project->with(['Category', 'Client'])->find($request->id),
             'category' => Category::all(),
             'client' => Client::all()
