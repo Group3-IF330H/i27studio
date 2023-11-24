@@ -2,17 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Client;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Project $project)
     {
-        //
+        $project = Project::with(['Category', 'Client'])->get();
+        $category = Category::all();
+        $client = Client::all();
+        return Inertia::render('Project/Show', [
+            'project' => $project,
+            'category' => $category,
+            'client' => $client,
+        ]);
     }
 
     /**
@@ -28,7 +40,30 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_project' => 'required',
+            'id_category' => 'required',
+            'id_client' => 'required',
+            'file' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,webp,bmp|max:10240',
+        ]);
+
+        $project = new Project();
+        $project->nama_project = $request->nama_project;
+        $project->id_category = $request->id_category;
+        $project->id_client = $request->id_client;
+
+        if ($request->hasFile('gambar_project')) {
+            $foto = $request->file('gambar_project');
+            $foto_nama = $foto->hashName();
+            $img = Image::make($foto)->encode('webp');
+            $webp_name = pathinfo($foto_nama, PATHINFO_FILENAME) . '.webp';
+            $img->save(storage_path('app/public/img/projects/' . $webp_name));
+            $project->gambar_project = $webp_name;
+        }
+
+        $project->save();
+
+        return redirect('/project');
     }
 
     /**
@@ -42,9 +77,13 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Project $project)
+    public function edit(Project $project, Request $request)
     {
-        //
+        return Inertia::render('Project/Edit', [
+            'myProject' => $project->with(['Category', 'Client'])->find($request->id),
+            'category' => Category::all(),
+            'client' => Client::all()
+        ]);
     }
 
     /**
@@ -52,14 +91,49 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $request->validate([
+            'nama_project' => 'required',
+            'id_category' => 'required',
+            'id_client' => 'required',
+            'file' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,webp,bmp|max:10240',
+        ]);
+
+        $project = Project::find($request->id);
+
+        $project->nama_project = $request->nama_project;
+        $project->id_category = $request->id_category;
+        $project->id_client = $request->id_client;
+
+        if ($request->hasFile('gambar_project')) {
+
+            if ($project->gambar_project) {
+                Storage::delete('public/img/projects/' . $project->gambar_project);
+                Storage::delete('public/img/projects/' . pathinfo($project->gambar_project, PATHINFO_FILENAME) . '.webp');
+            }
+
+            $foto = $request->file('gambar_project');
+            $foto_nama = $foto->hashName();
+            $img = Image::make($foto)->encode('webp');
+            $webp_name = pathinfo($foto_nama, PATHINFO_FILENAME) . '.webp';
+            $img->save(storage_path('app/public/img/projects/' . $webp_name));
+            $project->gambar_project = $webp_name;
+        }
+
+        $project->save();
+        return redirect('/project');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Project $project)
+    public function destroy(Request $request)
     {
-        //
+        $project = Project::find($request->id);
+        if ($project->gambar_project) {
+            Storage::delete('public/img/projects/' . $project->gambar_project);
+            Storage::delete('public/img/projects/' . pathinfo($project->gambar_project, PATHINFO_FILENAME) . '.webp');
+        }
+        $project->delete();
+        return redirect('/project')->with('message', 'Data Project berhasil dihapus');
     }
 }
