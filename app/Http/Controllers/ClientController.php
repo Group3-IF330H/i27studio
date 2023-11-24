@@ -5,86 +5,58 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Client $client)
     {
-        //
+        $client = Client::all();
+        return Inertia::render('Client/Show', [
+            'client' => $client,
+        ]);
     }
 
     /* 
      * Store a newly created resource in storage.
      */
-    // public function store(ClientRequest $clientRequest)
-    // {
-    //     $validated = $clientRequest->validated();
-    //     $client = new Client();
-    //     $client->nama_client = $validated['nama_client'];
-    //     $client->lokasi_client = $validated['lokasi_client'];
-    //     $client->logo_client = isset($validated['logo_client']) ? $validated['logo_client'] : "";
-    //     $client->save();
-    //     return redirect('/client');
-    // }
-
     public function store(Request $request)
     {
         $request->validate([
             'nama_client' => 'required',
             'lokasi_client' => 'required',
             'file' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,webp,bmp|max:10240',
-
         ]);
-
-        ddd($request);
 
         $client = new Client();
         $client->nama_client = $request->nama_client;
         $client->lokasi_client = $request->lokasi_client;
-        $client->logo_client =  $request->logo_client;
+
+        if ($request->hasFile('logo_client')) {
+            $foto = $request->file('logo_client');
+            $foto_nama = $foto->hashName();
+            $img = Image::make($foto)->encode('webp');
+            $webp_name = pathinfo($foto_nama, PATHINFO_FILENAME) . '.webp';
+            $img->save(storage_path('app/public/img/clients/' . $webp_name));
+            $client->logo_client = $webp_name;
+        }
+
+
         $client->save();
         return redirect('/client');
     }
 
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'nama_client' => 'required',
-    //         'lokasi_client' => 'required',
-    //         'logo_client' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,webp,bmp|max:10240',
-    //     ]);
-
-    //     $client = new Client();
-    //     $client->nama_client = $request->nama_client;
-    //     $client->lokasi_client = $request->lokasi_client;
-
-    //     $file = $request->logo_client;
-    //     $filename = pathinfo($file, PATHINFO_FILENAME);
-    //     $extension = pathinfo($file, PATHINFO_EXTENSION);
-    //     $concatFileName = str_replace(' ', '', ucwords($filename) . '.' . $extension);
-
-    //     // $file->storeAs(public_path('client'), $concatFileName . "." . $extension);
-    //     // $client->logo_client = $concatFileName . "." . $extension;
-    //     $client->logo_client = $request->logo_client;
-    //     $client->save();
-
-    //     return redirect('/client');
-    // }
 
     /**
      * Display the specified resource.
      */
-    public function show(Client $client)
+    public function show()
     {
-        $client = Client::all();
-        return Inertia::render('Client/Show', [
-            'client' => $client,
-        ]);
+        //
     }
 
     /**
@@ -102,11 +74,39 @@ class ClientController extends Controller
      */
     public function update(Request $request)
     {
-        Client::where('id', $request->id)->update([
-            'nama_client' => $request->nama_client,
-            'lokasi_client' => $request->lokasi_client,
-            'logo_client' => $request->logo_client,
+        // Client::where('id', $request->id)->update([
+        //     'nama_client' => $request->nama_client,
+        //     'lokasi_client' => $request->lokasi_client,
+        //     'logo_client' => $request->logo_client,
+        // ]);
+        // return redirect('/client');
+        $request->validate([
+            'nama_client' => 'required',
+            'lokasi_client' => 'required',
+            'file' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg,webp,bmp|max:10240',
         ]);
+
+        $client = Client::find($request->id);
+
+        $client->nama_client = $request->nama_client;
+        $client->lokasi_client = $request->lokasi_client;
+
+        if ($request->hasFile('logo_client')) {
+
+            if ($client->logo_client) {
+                Storage::delete('public/img/clients/' . $client->logo_client);
+                Storage::delete('public/img/clients/' . pathinfo($client->logo_client, PATHINFO_FILENAME) . '.webp');
+            }
+
+            $foto = $request->file('logo_client');
+            $foto_nama = $foto->hashName();
+            $img = Image::make($foto)->encode('webp');
+            $webp_name = pathinfo($foto_nama, PATHINFO_FILENAME) . '.webp';
+            $img->save(storage_path('app/public/img/clients/' . $webp_name));
+            $client->logo_client = $webp_name;
+        }
+
+        $client->save();
         return redirect('/client');
     }
 
@@ -116,6 +116,10 @@ class ClientController extends Controller
     public function destroy(Request $request)
     {
         $client = Client::find($request->id);
+        if ($client->logo_client) {
+            Storage::delete('public/img/clients/' . $client->logo_client);
+            Storage::delete('public/img/clients/' . pathinfo($client->logo_client, PATHINFO_FILENAME) . '.webp');
+        }
         $client->delete();
         return redirect()->back()->with('message', 'Data Client berhasil dihapus');
     }

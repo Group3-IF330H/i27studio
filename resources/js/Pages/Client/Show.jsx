@@ -5,7 +5,6 @@ import Dropdown from "@/Components/Dropdown";
 import DataTable from "react-data-table-component";
 import SecondaryButton from "@/Components/SecondaryButton";
 import DangerButton from "@/Components/DangerButton";
-import { useState } from "react";
 
 export default function ShowClient({ auth, client }) {
     const confirmingDelete = (e) => {
@@ -17,18 +16,25 @@ export default function ShowClient({ auth, client }) {
 
     const columns = [
         {
+            name: "Logo",
+            cell: (client) => (
+                <div className="flex p-8">
+                    <img
+                        src={`../storage/img/clients/${client.logo_client}`}
+                        alt="logo_client"
+                        className="h-16"
+                    />
+                </div>
+            ),
+        },
+        {
             name: "Client",
-            selector: "nama_client",
+            selector: (row) => row.nama_client,
             sortable: true,
         },
         {
             name: "Location",
-            selector: "lokasi_client",
-            sortable: true,
-        },
-        {
-            name: "Logo",
-            selector: "logo_client",
+            selector: (row) => row.lokasi_client,
             sortable: true,
         },
         {
@@ -57,14 +63,14 @@ export default function ShowClient({ auth, client }) {
         <AuthenticatedLayout
             user={auth.user}
             header={
-                <h2 className="font-semibold text-xl text-gray-800 leading-tight">
+                <h2 className="text-xl font-semibold leading-tight text-gray-800">
                     Clients
                 </h2>
             }
         >
             <Head title="Client" />
             <div className="py-8">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+                <div className="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
                     <CreateClientForm />
                     <DataTable
                         columns={columns}

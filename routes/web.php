@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ProjectController;
 use App\Models\Client;
 use App\Models\Employee;
 use App\Models\Project;
@@ -59,11 +62,24 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/client', [ClientController::class, 'show'])->name('client.show');
-    Route::post('/client/create', [ClientController::class, 'store'])->name('client.create');
-    Route::get('/client/edit', [ClientController::class, 'edit'])->name('client.edit');
-    Route::post('/client/update', [ClientController::class, 'update'])->name('client.update');
-    Route::delete('/client/delete', [ClientController::class, 'destroy'])->name('client.destroy');
+    Route::controller(ClientController::class)->group(function () {
+        Route::get('/client', 'index')->name('client.index');
+        Route::post('/client/create', 'store')->name('client.create');
+        Route::get('/client/edit', 'edit')->name('client.edit');
+        Route::post('/client/update', 'update')->name('client.update');
+        Route::delete('/client/delete', 'destroy')->name('client.destroy');
+    });
+    Route::controller(ProjectController::class)->group(function () {
+        Route::get('/project', 'index')->name('project.index');
+        Route::post('/project/create', 'store')->name('project.create');
+        Route::get('/project/edit', 'edit')->name('project.edit');
+        Route::post('/project/update', 'update')->name('project.update');
+        Route::delete('/project/delete', 'destroy')->name('project.destroy');
+    });
+    Route::controller(CategoryController::class)->group(function () {
+    });
+    Route::controller(EmployeeController::class)->group(function () {
+    });
 });
 
 require __DIR__ . '/auth.php';

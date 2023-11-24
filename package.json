@@ -21,9 +21,8 @@
     },
     "dependencies": {
         "framer-motion": "^10.16.4",
-        "react-fast-marquee": "^1.6.2",
         "react-data-table-component": "^7.5.4",
-        "styled-components": "^6.1.1",
-        "resize-observer-polyfill": "^1.5.1"
+        "react-fast-marquee": "^1.6.2",
+        "styled-components": "^6.1.1"
     }
 }
