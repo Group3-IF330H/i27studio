@@ -63,7 +63,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        return redirect('/project');
+        return redirect()->route('project.index');
     }
 
     /**
@@ -120,7 +120,7 @@ class ProjectController extends Controller
         }
 
         $project->save();
-        return redirect('/project');
+        return redirect()->route('project.index');
     }
 
     /**

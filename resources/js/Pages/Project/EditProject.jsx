@@ -41,7 +41,7 @@ const EditProject = ({ auth, myProject, category, client }) => {
                 </h2>
             }
         >
-            <Head title="Client" />
+            <Head title="Edit Project" />
             <div className="py-12">
                 <div className="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
                     <form encType="multipart/form-data">

@@ -37,7 +37,7 @@ export default function EditClient({ auth, myClient }) {
                 </h2>
             }
         >
-            <Head title="Client" />
+            <Head title="Edit Client" />
             <div className="py-12">
                 <div className="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
                     <form encType="multipart/form-data">

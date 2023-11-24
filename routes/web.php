@@ -77,6 +77,11 @@ Route::middleware('auth')->group(function () {
         Route::delete('/project/delete', 'destroy')->name('project.destroy');
     });
     Route::controller(CategoryController::class)->group(function () {
+        Route::get('/category', 'index')->name('category.index');
+        Route::post('/category/create', 'store')->name('category.create');
+        Route::get('/category/edit', 'edit')->name('category.edit');
+        Route::post('/category/update', 'update')->name('category.update');
+        Route::delete('/category/delete', 'destroy')->name('category.destroy');
     });
     Route::controller(EmployeeController::class)->group(function () {
     });
