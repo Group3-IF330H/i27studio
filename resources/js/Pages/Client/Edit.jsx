@@ -3,7 +3,6 @@ import TextInput from "@/Components/TextInput";
 import PrimaryButton from "@/Components/PrimaryButton";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, useForm } from "@inertiajs/react";
-import SecondaryButton from "@/Components/SecondaryButton";
 
 export default function EditClient({ auth, myClient }) {
     const { data, setData, post, processing, reset } = useForm({
@@ -33,20 +32,20 @@ export default function EditClient({ auth, myClient }) {
         <AuthenticatedLayout
             user={auth.user}
             header={
-                <h2 className="font-semibold text-xl text-gray-800 leading-tight">
+                <h2 className="text-xl font-semibold leading-tight text-gray-800">
                     Edit Client
                 </h2>
             }
         >
             <Head title="Client" />
             <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+                <div className="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
                     <form encType="multipart/form-data">
                         <InputLabel>Name</InputLabel>
                         <TextInput
                             id="nama_client"
                             type="text"
-                            className="mt-1 mb-4 block w-full"
+                            className="block w-full mt-1 mb-4"
                             placeholder={myClient.nama_client}
                             value={data.nama_client}
                             onChange={(e) =>
@@ -58,7 +57,7 @@ export default function EditClient({ auth, myClient }) {
                         <TextInput
                             id="lokasi_client"
                             type="text"
-                            className="mt-1 mb-4 block w-full"
+                            className="block w-full mt-1 mb-4"
                             placeholder={myClient.lokasi_client}
                             value={data.lokasi_client}
                             onChange={(e) =>
@@ -70,13 +69,13 @@ export default function EditClient({ auth, myClient }) {
                         <TextInput
                             id="logo_client"
                             type="file"
-                            className="mt-1 mb-4 block w-full"
+                            className="block w-full mt-1 mb-4"
                             onChange={(e) =>
                                 setData("logo_client", e.target.files[0])
                             }
                         />
 
-                        <div className="mt-6 flex justify-end">
+                        <div className="flex justify-end mt-6">
                             <PrimaryButton
                                 onClick={updateClient}
                                 className="ms-3"
