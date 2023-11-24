@@ -5,7 +5,7 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, useForm } from "@inertiajs/react";
 import React from "react";
 
-const Edit = ({ auth, myProject, category, client }) => {
+const EditProject = ({ auth, myProject, category, client }) => {
     console.log(myProject);
     const { data, setData, post, processing, reset } = useForm({
         nama_project: myProject.nama_project,
@@ -125,4 +125,4 @@ const Edit = ({ auth, myProject, category, client }) => {
     );
 };
 
-export default Edit;
+export default EditProject;
