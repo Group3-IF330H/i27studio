@@ -46,6 +46,12 @@ export default function Authenticated({ user, header, children }) {
                                 >
                                     Category
                                 </NavLink>
+                                <NavLink
+                                    href={route("team.index")}
+                                    active={route().current("team.index")}
+                                >
+                                    Team
+                                </NavLink>
                             </div>
                         </div>
 
@@ -161,6 +167,18 @@ export default function Authenticated({ user, header, children }) {
                             active={route().current("project.index")}
                         >
                             Project
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route("category.index")}
+                            active={route().current("category.index")}
+                        >
+                            Category
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route("team.index")}
+                            active={route().current("team.index")}
+                        >
+                            Team
                         </ResponsiveNavLink>
                     </div>
 
