@@ -84,6 +84,11 @@ Route::middleware('auth')->group(function () {
         Route::delete('/category/delete', 'destroy')->name('category.destroy');
     });
     Route::controller(EmployeeController::class)->group(function () {
+        Route::get('/team', 'index')->name('team.index');
+        Route::post('/team/create', 'store')->name('team.create');
+        Route::get('/team/edit', 'edit')->name('team.edit');
+        Route::post('/team/update', 'update')->name('team.update');
+        Route::delete('/team/delete', 'destroy')->name('team.destroy');
     });
 });
 
