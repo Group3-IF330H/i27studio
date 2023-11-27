@@ -26,7 +26,7 @@ const PageLayout = ({ children, title, heading, tag }) => {
                                 </Link>
                             </div>
                             <div className="link">
-                                <Link href="/projects">
+                                <Link href="/projects/all">
                                     <span className="text-2xl underline font-roboto hover:cursor-pointer">
                                         Projects
                                     </span>
@@ -48,19 +48,23 @@ const PageLayout = ({ children, title, heading, tag }) => {
                     </div>
                 </div>
             </div>
-            <div className="flex items-center h-full cover md:mr-[18.75rem] md:h-max md:pt-20">
-                <div className="container px-4 pt-20 md:px-0 md:py-0 md:ml-10 cover-item">
-                    <motion.h1
-                        initial={{ translateX: -1000 }}
-                        animate={{ translateX: 0 }}
-                        transition={{ duration: 1.5, type: "tween" }}
-                        className="text-left leading-[0.9]"
-                    >
-                        {heading}
-                    </motion.h1>
-                    {tag && <div className="mt-4 md:mt-8">{tag}</div>}
+            {heading && (
+                <div className="flex items-center h-full cover md:mr-[18.75rem] md:h-max md:pt-20">
+                    <div className="container px-4 pt-20 md:px-0 md:py-0 md:ml-10 cover-item">
+                        {heading && (
+                            <motion.h1
+                                initial={{ translateX: -1000 }}
+                                animate={{ translateX: 0 }}
+                                transition={{ duration: 1.5, type: "tween" }}
+                                className="text-left leading-[0.9]"
+                            >
+                                {heading}
+                            </motion.h1>
+                        )}
+                        {tag && <div className="mt-4 md:mt-8">{tag}</div>}
+                    </div>
                 </div>
-            </div>
+            )}
             <main>{children}</main>
         </>
     );

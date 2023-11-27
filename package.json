@@ -20,6 +20,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@heroicons/react": "^2.0.18",
         "framer-motion": "^10.16.4",
         "react-data-table-component": "^7.5.4",
         "react-fast-marquee": "^1.6.2",

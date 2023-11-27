@@ -58,7 +58,7 @@ const Homepage = (props) => {
                 </div>
                 <div className="flex items-center justify-center h-screen to-all-projects">
                     <TextReveal>
-                        <Link href="/projects">
+                        <Link href="/projects/all">
                             <span className="xl:text-[8rem] md:text-6xl text-4xl pb-3 text-[#000] border-b-4 border-[#000]">
                                 SEE ALL PROJECTS
                             </span>
