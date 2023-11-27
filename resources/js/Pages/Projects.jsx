@@ -22,7 +22,10 @@ const Projects = (props) => {
                 heading={
                     gone &&
                     cat && (
-                        <span className="text-[5rem] xl:text-[11.25rem]">
+                        <span
+                            className="text-[5rem] xl:text-[11.25rem]"
+                            id="title"
+                        >
                             Projects
                         </span>
                     )
@@ -65,7 +68,7 @@ const Projects = (props) => {
                         </div>
                     </section>
                 )}
-                <div className="px-8 all-projects">
+                <div className="px-8 all-projects" id="title">
                     <div className="heading-all-projects text-8xl">
                         {props.categoryNama.charAt(0).toUpperCase() +
                             props.categoryNama.slice(1)}{" "}
