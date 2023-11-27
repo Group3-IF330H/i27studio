@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProjectController;
+use App\Models\Category;
 use App\Models\Client;
 use App\Models\Employee;
 use App\Models\Project;
@@ -34,8 +35,9 @@ Route::get('/about', function () {
     return Inertia::render('About', ['data' => Employee::all()]);
 });
 
-Route::get('/projects', function () {
-    return Inertia::render('Projects', ['project' => Project::with(['Category', 'Client'])->get()]);
+Route::controller(ProjectController::class)->group(function () {
+    Route::get('/projects/{category}', 'category')->name("project.category");
+    Route::get('/projects/client/{client}', 'show')->name('project.show');
 });
 
 Route::get('/contact', function () {

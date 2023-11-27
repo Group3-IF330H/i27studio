@@ -69,9 +69,18 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Project $project)
+    public function show($clientName)
     {
-        //
+        $projects = Project::with(['Category', 'Client'])
+            ->whereHas('Client', function ($query) use ($clientName) {
+                $query->where('nama_client', $clientName);
+            })
+            ->get();
+
+        return Inertia::render('Project/ShowClient', [
+            'projects' => $projects,
+            'client' => $clientName
+        ]);
     }
 
     /**
@@ -135,5 +144,24 @@ class ProjectController extends Controller
         }
         $project->delete();
         return redirect('/project')->with('message', 'Data Project berhasil dihapus');
+    }
+
+    public function category($categoryName)
+    {
+        if ($categoryName === "all") {
+            $projects = Project::with(['Category', 'Client'])->paginate(12);
+        } else {
+            $projects = Project::with(['Category', 'Client'])
+                ->whereHas('Category', function ($query) use ($categoryName) {
+                    $query->where('nama_category', $categoryName);
+                })
+                ->paginate(12);
+        }
+
+        return Inertia::render('Projects', [
+            'project' => $projects,
+            'category' => Category::all(),
+            'categoryNama' => $categoryName
+        ]);
     }
 }

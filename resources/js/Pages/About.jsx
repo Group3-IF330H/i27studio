@@ -22,11 +22,7 @@ const About = (props) => {
             <PageLayout
                 title={"About"}
                 heading={
-                    <>
-                        <h1 className="text-[5rem] xl:text-[11.25rem]">
-                            About Us
-                        </h1>
-                    </>
+                    <h1 className="text-[5rem] xl:text-[11.25rem]">About Us</h1>
                 }
             >
                 <div className="w-full mt-20 content">
