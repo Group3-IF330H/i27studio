@@ -23,7 +23,7 @@ const Projects = (props) => {
                     gone &&
                     cat && (
                         <span
-                            className="text-[5rem] xl:text-[11.25rem]"
+                            className="text-[5rem] md:text-[11.25rem]"
                             id="title"
                         >
                             Projects
@@ -34,10 +34,10 @@ const Projects = (props) => {
                 {gone && cat && (
                     <section
                         ref={targetRef}
-                        className="relative h-[150vh] mt-40 mb-16"
+                        className="relative h-[150vh] xl:mt-40 mt-16 mb-16"
                     >
-                        <div className="sticky top-0 flex flex-col justify-center px-8 overflow-hidden">
-                            <div className="container pt-8 text-4xl">
+                        <div className="sticky top-0 flex flex-col justify-center px-6 overflow-hidden md:px-8">
+                            <div className="container pt-8 md:text-4xl">
                                 <h1>
                                     Strengthening architectural visions through
                                     collaborative synergy, empowering innovative
@@ -68,8 +68,8 @@ const Projects = (props) => {
                         </div>
                     </section>
                 )}
-                <div className="px-8 all-projects" id="title">
-                    <div className="heading-all-projects text-8xl">
+                <div className="px-8 pt-20 all-projects" id="title">
+                    <div className="text-5xl heading-all-projects sm:text-8xl">
                         {props.categoryNama.charAt(0).toUpperCase() +
                             props.categoryNama.slice(1)}{" "}
                         Projects

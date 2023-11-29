@@ -31,11 +31,12 @@ const ProjectCard = ({ data, index }) => {
                         </h1>
                     </div>
                     <img
-                        src={`../storage/img/projects/${data.gambar_project}`}
+                        src={`../../storage/img/projects/${data.gambar_project}`}
                         alt="projects"
                         className="object-cover object-center w-full h-full"
+                        loading="lazy"
                     />
-                    <div className="absolute px-4 py-4 w-[90%] left-0 right-0 mx-auto bottom-0 mb-6 h-max shadow-lg bg-white z-50 flex justify-between">
+                    <div className="absolute px-4 py-4 w-[90%] left-0 right-0 mx-auto bottom-0 mb-6 h-max shadow-lg bg-white z-50 flex justify-between items-center">
                         <div className="kategori">
                             <h1 className="text-lg">Category</h1>
                             <p className="font-normal opacity-50">

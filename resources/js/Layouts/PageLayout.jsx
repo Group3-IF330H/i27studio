@@ -72,7 +72,7 @@ const PageLayout = ({ children, title, heading, tag }) => {
             </div>
             {heading && (
                 <div className="flex items-center h-full cover md:mr-[18.75rem] md:h-max md:pt-20">
-                    <div className="container px-4 pt-20 md:px-0 md:py-0 md:ml-10 cover-item">
+                    <div className="container px-8 pt-20 md:px-0 md:py-0 md:ml-10 cover-item">
                         {heading && (
                             <motion.h1
                                 initial={{ translateX: -1000 }}
