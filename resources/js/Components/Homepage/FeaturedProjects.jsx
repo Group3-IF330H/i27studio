@@ -10,7 +10,7 @@ const FeaturedProjects = (props) => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ duration: 1 }}
-                        src={`../../storage/img/projects/${props.project.gambar_project}`}
+                        src={`../storage/img/projects/${props.project.gambar_project}`}
                         alt="projects"
                         className="object-cover w-full h-full"
                         loading="lazy"

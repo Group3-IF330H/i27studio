@@ -164,4 +164,12 @@ class ProjectController extends Controller
             'categoryNama' => $categoryName
         ]);
     }
+
+    public function checked(Request $request, $id)
+    {
+        $project = Project::findOrFail($id);
+        $project->is_highlight = $request->is_checked;
+        $project->save();
+        // dd($request->is_checked);
+    }
 }

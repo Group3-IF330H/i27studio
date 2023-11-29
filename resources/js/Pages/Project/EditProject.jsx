@@ -6,7 +6,6 @@ import { Head, useForm } from "@inertiajs/react";
 import React from "react";
 
 const EditProject = ({ auth, myProject, category, client }) => {
-    console.log(myProject);
     const { data, setData, post, processing, reset } = useForm({
         nama_project: myProject.nama_project,
         id_category: myProject.id_category,

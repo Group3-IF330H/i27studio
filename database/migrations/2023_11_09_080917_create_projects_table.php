@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('gambar_project')->nullable();
             $table->integer('id_client')->unsigned();
             $table->integer('id_category')->unsigned();
+            $table->boolean('is_highlight')->nullable();
             $table->foreign('id_category')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('id_client')->references('id')->on('clients')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();

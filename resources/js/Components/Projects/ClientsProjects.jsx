@@ -1,7 +1,6 @@
 import React from "react";
 
 const ClientsProjects = ({ data, index }) => {
-    console.log(data);
     return (
         <>
             <div className="relative overflow-hidden h-max card" key={index}>

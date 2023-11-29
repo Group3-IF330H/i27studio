@@ -13,8 +13,8 @@ const Homepage = (props) => {
     const client = props.client;
     const project = props.project;
 
-    const banyakClient = props.client.length;
-    const banyakProject = props.project.length;
+    const banyakClient = props.countClient;
+    const banyakProject = props.countProject;
 
     const count1 = useMotionValue(0);
     const jmlhClient = useTransform(count1, Math.round);

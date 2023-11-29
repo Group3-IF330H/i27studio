@@ -31,7 +31,7 @@ const ProjectCard = ({ data, index }) => {
                         </h1>
                     </div>
                     <img
-                        src={`../../storage/img/projects/${data.gambar_project}`}
+                        src={`../storage/img/projects/${data.gambar_project}`}
                         alt="projects"
                         className="object-cover object-center w-full h-full"
                         loading="lazy"

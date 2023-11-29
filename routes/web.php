@@ -27,7 +27,9 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return Inertia::render('Homepage', [
         'client' => Client::all(),
-        'project' => Project::with(['Category', 'Client'])->get()
+        'project' => Project::with(['Category', 'Client'])->get()->where("is_highlight", true),
+        "countProject" => Project::count(),
+        "countClient" => Client::count()
     ]);
 });
 
@@ -76,6 +78,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/project/create', 'store')->name('project.create');
         Route::get('/project/edit', 'edit')->name('project.edit');
         Route::post('/project/update', 'update')->name('project.update');
+        Route::post('/project/{id}/checked', 'checked')->name('project.checked');
         Route::delete('/project/delete', 'destroy')->name('project.destroy');
     });
     Route::controller(CategoryController::class)->group(function () {
