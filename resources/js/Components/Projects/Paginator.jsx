@@ -11,7 +11,7 @@ const Paginator = ({ meta }) => {
 
     return (
         <>
-            <div className="flex items-center justify-between mt-8 lg:justify-normal page-button">
+            <div className="flex items-center justify-between mt-8 page-button">
                 <Link href={prev} disabled={disabledPrev}>
                     <button
                         className="flex items-center gap-3 py-4 sm:gap-8 sm:px-8 hover:cursor-pointer disabled:opacity-20"

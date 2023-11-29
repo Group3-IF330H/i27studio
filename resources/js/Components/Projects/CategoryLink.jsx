@@ -12,7 +12,7 @@ const CategoryLink = ({ active = false, children, href }) => {
         >
             <div
                 className={
-                    "text-xl category " + (active ? "font-bold" : "font-normal")
+                    "text-lg category " + (active ? "font-bold" : "font-normal")
                 }
             >
                 {children}

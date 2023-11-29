@@ -17,6 +17,7 @@ const CategoryFilter = ({ category }) => {
                 {category.map((data, index) => {
                     return (
                         <CategoryLink
+                            key={index}
                             active={route().current("project.category", {
                                 category: data.nama_category,
                             })}

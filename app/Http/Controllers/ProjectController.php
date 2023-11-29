@@ -75,7 +75,7 @@ class ProjectController extends Controller
             ->whereHas('Client', function ($query) use ($clientName) {
                 $query->where('nama_client', $clientName);
             })
-            ->get();
+            ->paginate(12);
 
         return Inertia::render('Project/ShowClient', [
             'projects' => $projects,
