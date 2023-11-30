@@ -52,8 +52,8 @@ const Homepage = (props) => {
                 <ClientSection client={client} />
                 <ServiceSection />
                 <div className="flex flex-col gap-72">
-                    {project.map((data, index) => {
-                        return <FeaturedProjects key={index} project={data} />;
+                    {project.map((data) => {
+                        return <FeaturedProjects project={data} />;
                     })}
                 </div>
                 <div className="flex items-center justify-center h-screen to-all-projects">

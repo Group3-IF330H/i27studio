@@ -40,7 +40,7 @@ export default function ShowClient({ auth, client }) {
         {
             name: "",
             cell: (client) => (
-                <section className="flex justify-between w-full">
+                <section className="flex justify-center w-full gap-2">
                     <Dropdown.Link
                         href={route("client.edit", { id: client.id })}
                     >

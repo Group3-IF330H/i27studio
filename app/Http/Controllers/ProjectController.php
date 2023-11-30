@@ -55,7 +55,7 @@ class ProjectController extends Controller
         if ($request->hasFile('gambar_project')) {
             $foto = $request->file('gambar_project');
             $foto_nama = $foto->hashName();
-            $img = Image::make($foto)->encode('webp');
+            $img = Image::make($foto)->encode('webp', 70);
             $webp_name = pathinfo($foto_nama, PATHINFO_FILENAME) . '.webp';
             $img->save(storage_path('app/public/img/projects/' . $webp_name));
             $project->gambar_project = $webp_name;
@@ -122,7 +122,7 @@ class ProjectController extends Controller
 
             $foto = $request->file('gambar_project');
             $foto_nama = $foto->hashName();
-            $img = Image::make($foto)->encode('webp');
+            $img = Image::make($foto)->encode('webp', 70);
             $webp_name = pathinfo($foto_nama, PATHINFO_FILENAME) . '.webp';
             $img->save(storage_path('app/public/img/projects/' . $webp_name));
             $project->gambar_project = $webp_name;

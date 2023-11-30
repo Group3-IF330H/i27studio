@@ -112,7 +112,6 @@ const ShowProject = ({ auth, project, category, client }) => {
                         responsive
                         highlightOnHover
                         pagination
-                        fixedHeader
                     />
                 </div>
             </div>

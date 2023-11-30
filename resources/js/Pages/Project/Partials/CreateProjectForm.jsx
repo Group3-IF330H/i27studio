@@ -123,7 +123,8 @@ const CreateProjectForm = (props) => {
                                 {props.client.map((data, index) => {
                                     return (
                                         <option key={index} value={data.id}>
-                                            {data.nama_client}
+                                            {data.nama_client} -{" "}
+                                            {data.lokasi_client}
                                         </option>
                                     );
                                 })}

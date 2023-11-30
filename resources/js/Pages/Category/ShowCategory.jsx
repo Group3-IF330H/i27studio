@@ -24,7 +24,7 @@ const ShowCategory = ({ auth, category }) => {
         {
             name: "",
             cell: (category) => (
-                <section className="flex justify-center w-full">
+                <section className="flex justify-center w-full gap-2">
                     <Dropdown.Link
                         href={route("category.edit", { id: category.id })}
                     >
@@ -62,7 +62,6 @@ const ShowCategory = ({ auth, category }) => {
                         responsive
                         highlightOnHover
                         pagination
-                        fixedHeader
                     />
                 </div>
             </div>

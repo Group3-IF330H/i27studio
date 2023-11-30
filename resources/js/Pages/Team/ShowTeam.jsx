@@ -42,7 +42,7 @@ const ShowTeam = ({ auth, team }) => {
         {
             name: "",
             cell: (team) => (
-                <section className="flex justify-center w-full">
+                <section className="flex justify-center w-full gap-2">
                     <Dropdown.Link href={route("team.edit", { id: team.id })}>
                         <SecondaryButton>Edit</SecondaryButton>
                     </Dropdown.Link>
@@ -78,7 +78,6 @@ const ShowTeam = ({ auth, team }) => {
                         responsive
                         highlightOnHover
                         pagination
-                        fixedHeader
                     />
                 </div>
             </div>
