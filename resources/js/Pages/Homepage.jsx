@@ -6,8 +6,7 @@ import { animate, useMotionValue, useTransform } from "framer-motion";
 import { useEffect } from "react";
 import FeaturedProjects from "@/Components/Homepage/FeaturedProjects";
 import TagHomepage from "@/Components/Homepage/TagHomepage";
-import TextReveal from "@/Components/TextReveal";
-import { Link } from "@inertiajs/react";
+import CallToAction from "@/Components/CallToAction";
 
 const Homepage = (props) => {
     const client = props.client;
@@ -56,15 +55,10 @@ const Homepage = (props) => {
                         return <FeaturedProjects project={data} />;
                     })}
                 </div>
-                <div className="flex items-center justify-center h-screen to-all-projects">
-                    <TextReveal>
-                        <Link href="/projects/all">
-                            <span className="xl:text-[8rem] md:text-6xl text-4xl pb-3 text-[#000] border-b-4 border-[#000]">
-                                SEE ALL PROJECTS
-                            </span>
-                        </Link>
-                    </TextReveal>
-                </div>
+                <CallToAction
+                    text={"SEE ALL PROJECTS"}
+                    href={route("project.category", { category: "all" })}
+                />
             </PageLayout>
         </>
     );

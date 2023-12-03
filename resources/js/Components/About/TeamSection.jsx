@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+
 const TeamSection = (props) => {
     return (
         <div className="container relative px-8 mt-36 team-section">
@@ -42,9 +43,9 @@ const TeamSection = (props) => {
                             className="flex flex-col justify-center person-image xl:basis-1/3 md:basis-1/2"
                         >
                             <motion.img
-                                src={`../storage/img/about/anggota/${data?.foto}`}
+                                src={`../storage/img/team/${data?.foto}`}
                                 alt="team"
-                                className="object-cover shadow-lg w-72"
+                                className="object-cover shadow-lg w-72 h-96"
                                 loading="lazy"
                                 initial={{ translateY: 200, opacity: 0 }}
                                 whileInView={{ translateY: 0, opacity: 1 }}

@@ -24,6 +24,7 @@
         "framer-motion": "^10.16.4",
         "react-data-table-component": "^7.5.4",
         "react-fast-marquee": "^1.6.2",
+        "react-photo-album": "^2.3.0",
         "styled-components": "^6.1.1"
     }
 }

@@ -34,7 +34,7 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return Inertia::render('About', ['data' => Employee::all()]);
+    return Inertia::render('About', ['data' => Employee::all(), "project" => Project::all()->take(50)]);
 });
 
 Route::controller(ProjectController::class)->group(function () {
@@ -44,7 +44,7 @@ Route::controller(ProjectController::class)->group(function () {
 
 Route::get('/contact', function () {
     return Inertia::render('Contact');
-});
+})->name('contact');
 
 Route::get('/welcome', function () {
     return Inertia::render('Welcome', [

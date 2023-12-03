@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import ShapeAnimation from "../ShapeAnimation";
 import TextReveal from "../TextReveal";
 
 const VisionMission = () => {

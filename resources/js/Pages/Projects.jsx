@@ -1,11 +1,10 @@
-import TextReveal from "@/Components/TextReveal";
 import PageLayout from "@/Layouts/PageLayout";
-import { Link } from "@inertiajs/react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import React, { useRef } from "react";
 import Paginator from "@/Components/Projects/Paginator";
 import CategoryFilter from "@/Components/Projects/CategoryFilter";
 import ProjectCard from "@/Components/Projects/ProjectCard";
+import CallToAction from "@/Components/CallToAction";
 
 const Projects = (props) => {
     const targetRef = useRef(null);
@@ -77,21 +76,18 @@ const Projects = (props) => {
                     <CategoryFilter category={props.category} />
                     <div className="grid w-full mt-16 gap-x-4 gap-y-8 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
                         {props.project.data.map((data, index) => {
-                            return <ProjectCard data={data} index={index} />;
+                            return (
+                                <ProjectCard
+                                    data={data}
+                                    index={index}
+                                    key={index}
+                                />
+                            );
                         })}
                     </div>
                     <Paginator meta={props.project} />
                 </div>
-
-                <div className="flex items-center justify-center h-screen to-contact">
-                    <TextReveal>
-                        <Link href="/contact">
-                            <span className="xl:text-[8rem] md:text-6xl text-4xl pb-3 text-[#000] border-b-4 border-[#000]">
-                                Contact Us?
-                            </span>
-                        </Link>
-                    </TextReveal>
-                </div>
+                <CallToAction text={"Contact Us?"} href={route("contact")} />
             </PageLayout>
         </>
     );

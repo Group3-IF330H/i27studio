@@ -36,7 +36,7 @@ const Contact = () => {
                                 <div className="name">
                                     <label
                                         className="block mb-2 text-xl font-bold tracking-wide uppercase"
-                                        for="name"
+                                        htmlFor="name"
                                     >
                                         Name{" "}
                                         <span className="text-[#f24c03]">
@@ -54,7 +54,7 @@ const Contact = () => {
                                 <div className="company-name">
                                     <label
                                         className="block mb-2 text-xl font-bold tracking-wide uppercase"
-                                        for="company-name"
+                                        htmlFor="company-name"
                                     >
                                         Company Name{" "}
                                         <span className="text-[#f24c03]">
@@ -72,7 +72,7 @@ const Contact = () => {
                                 <div className="email">
                                     <label
                                         className="block mb-2 text-xl font-bold tracking-wide uppercase"
-                                        for="email"
+                                        htmlFor="email"
                                     >
                                         Email Address{" "}
                                         <span className="text-[#f24c03]">
@@ -90,7 +90,7 @@ const Contact = () => {
                                 <div className="email-confirm">
                                     <label
                                         className="block mb-2 text-xl font-bold tracking-wide uppercase"
-                                        for="email-confirm"
+                                        htmlFor="email-confirm"
                                     >
                                         Email Address Confirmation{" "}
                                         <span className="text-[#f24c03]">
@@ -108,7 +108,7 @@ const Contact = () => {
                                 <div className="phone">
                                     <label
                                         className="block mb-2 text-xl font-bold tracking-wide uppercase"
-                                        for="phone"
+                                        htmlFor="phone"
                                     >
                                         Phone Number{" "}
                                         <span className="text-[#f24c03]">
@@ -126,7 +126,7 @@ const Contact = () => {
                                 <div className="location">
                                     <label
                                         className="block mb-2 text-xl font-bold tracking-wide uppercase"
-                                        for="location"
+                                        htmlFor="location"
                                     >
                                         Location{" "}
                                         <span className="text-[#f24c03]">
@@ -144,7 +144,7 @@ const Contact = () => {
                                 <div className="question">
                                     <label
                                         className="block mb-2 text-xl font-bold tracking-wide uppercase"
-                                        for="question"
+                                        htmlFor="question"
                                     >
                                         Question
                                     </label>

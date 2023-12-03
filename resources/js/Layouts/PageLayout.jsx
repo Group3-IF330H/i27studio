@@ -21,6 +21,7 @@ const PageLayout = ({ children, title, heading, tag }) => {
             setHidden(false);
         }
     }, [scrollVal]);
+
     return (
         <>
             <Head title={title} />
@@ -87,6 +88,7 @@ const PageLayout = ({ children, title, heading, tag }) => {
                     </div>
                 </div>
             )}
+
             <main>{children}</main>
         </>
     );

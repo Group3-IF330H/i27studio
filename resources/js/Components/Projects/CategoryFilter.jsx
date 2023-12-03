@@ -2,10 +2,9 @@ import React from "react";
 import CategoryLink from "./CategoryLink";
 
 const CategoryFilter = ({ category }) => {
-    console.log(category);
     return (
         <>
-            <div className="flex gap-8 mt-16 overflow-x-scroll category-filter">
+            <div className="flex gap-8 mt-16 overflow-x-scroll md:overflow-hidden category-filter">
                 <CategoryLink
                     active={route().current("project.category", {
                         category: "all",

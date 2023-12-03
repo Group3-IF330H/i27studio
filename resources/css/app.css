@@ -17,3 +17,16 @@ body {
     -webkit-text-stroke: 2px #f24c03;
     -webkit-text-fill-color: transparent;
 }
+
+.react-photo-album--photo {
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.link-mask {
+    position: absolute;
+    mask-image: url(../../public/mark-cursor.svg);
+    background: #f24c03;
+    mask-repeat: no-repeat;
+}
