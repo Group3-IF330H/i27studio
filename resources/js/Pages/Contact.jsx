@@ -11,7 +11,7 @@ const Contact = () => {
             <PageLayout title={"Contact"}>
                 <div className="contact-content">
                     <motion.div
-                        className="container relative px-8 heading-text text-[5rem] xl:text-[11.25rem] leading-none"
+                        className="container relative px-8 heading-text text-[5rem] xl:text-[11.25rem] leading-none pt-20"
                         style={{ y: y1, zIndex: -40 }}
                         initial={{ translateX: -1000 }}
                         animate={{ translateX: 0 }}
@@ -69,7 +69,7 @@ const Contact = () => {
                                         required
                                     />
                                 </div>
-                                <div className="email">
+                                <div className="email" id="title">
                                     <label
                                         className="block mb-2 text-xl font-bold tracking-wide uppercase"
                                         htmlFor="email"

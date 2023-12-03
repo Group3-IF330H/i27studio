@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const AboutHeading = (props) => {
     return (
         <>
-            <div className="relative w-full pb-52 parallax h-max">
+            <div className="relative w-full pb-52 parallax h-max" id="title">
                 <div className="relative image">
                     <motion.img
                         src="../storage/img/about/kantor/K-02.jpg"

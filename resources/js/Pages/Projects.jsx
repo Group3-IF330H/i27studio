@@ -67,7 +67,7 @@ const Projects = (props) => {
                         </div>
                     </section>
                 )}
-                <div className="px-8 pt-20 all-projects" id="title">
+                <div className="px-8 lg:pt-20 pt-28 all-projects" id="title">
                     <div className="text-5xl heading-all-projects sm:text-8xl">
                         {props.categoryNama.charAt(0).toUpperCase() +
                             props.categoryNama.slice(1)}{" "}

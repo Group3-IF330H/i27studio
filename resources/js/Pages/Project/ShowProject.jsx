@@ -15,7 +15,7 @@ const ShowProject = ({ auth, project, category, client }) => {
         }
     };
 
-    const { data, setData, post, reset } = useForm({});
+    const { post, reset } = useForm({});
 
     const updateProject = (id, checked) => {
         post(route("project.checked", { id: id, is_checked: checked }), {

@@ -4,7 +4,7 @@ import ShapeAnimation from "./ShapeAnimation";
 const TextReveal = ({ children }) => {
     return (
         <>
-            <div className="relative w-max h-max heading">
+            <div className="relative w-full h-max heading">
                 {children}
                 <ShapeAnimation />
             </div>

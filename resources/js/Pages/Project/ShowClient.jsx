@@ -37,7 +37,7 @@ const ShowClient = (props) => {
                 >
                     <div className="flex items-center justify-center w-full h-full">
                         <motion.div
-                            className="relative w-3/4 h-max"
+                            className="relative w-max h-3/4"
                             initial={{ scale: 0 }}
                             whileInView={{ scale: 1 }}
                             transition={{ duration: 0.8, type: "spring" }}

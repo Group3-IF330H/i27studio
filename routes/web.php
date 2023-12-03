@@ -35,7 +35,7 @@ Route::get('/', function () {
 
 Route::get('/about', function () {
     return Inertia::render('About', ['data' => Employee::all(), "project" => Project::all()->take(50)]);
-});
+})->name("about");
 
 Route::controller(ProjectController::class)->group(function () {
     Route::get('/projects/{category}', 'category')->name("project.category");
