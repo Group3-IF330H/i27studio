@@ -4,12 +4,15 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProjectController;
+use App\Mail\ContactMail;
 use App\Models\Category;
 use App\Models\Client;
 use App\Models\Employee;
 use App\Models\Project;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -54,6 +57,8 @@ Route::get('/welcome', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::post('/test', [MailController::class, 'MakeMail'])->name('contact.mail');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

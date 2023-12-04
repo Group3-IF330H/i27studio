@@ -1,10 +1,35 @@
 import PageLayout from "@/Layouts/PageLayout";
 import React from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
+import { useForm } from "@inertiajs/react";
+import InputError from "@/Components/InputError";
 
 const Contact = () => {
     const { scrollY } = useScroll();
     const y1 = useTransform(scrollY, [0, 2000], [0, 1000]);
+
+    const { setData, post, processing, reset, errors } = useForm({
+        name: "",
+        company: "",
+        email: "",
+        phone: "",
+        location: "",
+        question: "",
+    });
+
+    function submit(e) {
+        e.preventDefault();
+        reset();
+        post(route("contact.mail"), {
+            preserveScroll: true,
+            onSuccess: () => {
+                alert("The email has been sent");
+            },
+            onFinish: () => {
+                reset();
+            },
+        });
+    }
 
     return (
         <>
@@ -49,12 +74,19 @@ const Contact = () => {
                                         placeholder="Your Name"
                                         name="name"
                                         required
+                                        onChange={(e) =>
+                                            setData("name", e.target.value)
+                                        }
+                                    />
+                                    <InputError
+                                        message={errors.name}
+                                        className="mb-1"
                                     />
                                 </div>
                                 <div className="company-name">
                                     <label
                                         className="block mb-2 text-xl font-bold tracking-wide uppercase"
-                                        htmlFor="company-name"
+                                        htmlFor="company"
                                     >
                                         Company Name{" "}
                                         <span className="text-[#f24c03]">
@@ -65,8 +97,15 @@ const Contact = () => {
                                         className="w-full pt-1 pb-3 leading-tight bg-transparent border-b-2 appearance-none placeholder:opacity-30 focus:border-b-2 focus:border-x-transparent focus:border-t-transparent focus:border-black border-x-transparent border-t-transparent focus:ring-transparent"
                                         type="text"
                                         placeholder="Your Company Name"
-                                        name="company-name"
+                                        name="company"
                                         required
+                                        onChange={(e) =>
+                                            setData("company", e.target.value)
+                                        }
+                                    />
+                                    <InputError
+                                        message={errors.company}
+                                        className="mb-1"
                                     />
                                 </div>
                                 <div className="email" id="title">
@@ -85,6 +124,13 @@ const Contact = () => {
                                         placeholder="hello@example.com"
                                         name="email"
                                         required
+                                        onChange={(e) =>
+                                            setData("email", e.target.value)
+                                        }
+                                    />
+                                    <InputError
+                                        message={errors.email}
+                                        className="mb-1"
                                     />
                                 </div>
                                 <div className="email-confirm">
@@ -121,6 +167,13 @@ const Contact = () => {
                                         placeholder="081234567890"
                                         name="phone"
                                         required
+                                        onChange={(e) =>
+                                            setData("phone", e.target.value)
+                                        }
+                                    />
+                                    <InputError
+                                        message={errors.phone}
+                                        className="mb-1"
                                     />
                                 </div>
                                 <div className="location">
@@ -139,6 +192,13 @@ const Contact = () => {
                                         placeholder="Tangerang, Banten"
                                         name="location"
                                         required
+                                        onChange={(e) =>
+                                            setData("location", e.target.value)
+                                        }
+                                    />
+                                    <InputError
+                                        message={errors.location}
+                                        className="mb-1"
                                     />
                                 </div>
                                 <div className="question">
@@ -153,9 +213,16 @@ const Contact = () => {
                                         type="text"
                                         placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati quo quisquam temporibus unde doloremque in totam sint doloribus repellendus illum?"
                                         name="question"
+                                        onChange={(e) =>
+                                            setData("question", e.target.value)
+                                        }
                                     />
                                 </div>
-                                <button className="absolute px-6 py-4 text-white uppercase bg-gray-800 rounded-md shadow-lg md:right-8 -bottom-6 w-max">
+                                <button
+                                    className="absolute px-6 py-4 text-white uppercase bg-gray-800 rounded-md shadow-lg disabled:bg-slate-400 md:right-8 -bottom-6 w-max"
+                                    disabled={processing}
+                                    onClick={submit}
+                                >
                                     Send Your Ideas
                                 </button>
                             </form>

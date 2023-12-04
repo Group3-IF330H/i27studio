@@ -4,7 +4,6 @@ import Paginator from "@/Components/Projects/Paginator";
 import TextReveal from "@/Components/TextReveal";
 import PageLayout from "@/Layouts/PageLayout";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { Link } from "@inertiajs/react";
 import { motion } from "framer-motion";
 import React from "react";
 
@@ -18,7 +17,7 @@ const ShowClient = (props) => {
         const imageSrc = document.getElementById("image-modal-src");
         const nama_project = document.getElementById("nama_project");
 
-        imageSrc.src = `../../storage/img/projects/${imageUrl}`;
+        imageSrc.src = `../public/img/projects/${imageUrl}`;
         nama_project.innerHTML = nama + " - " + client;
         modal.classList.remove("hidden");
     };
@@ -37,18 +36,18 @@ const ShowClient = (props) => {
                 >
                     <div className="flex items-center justify-center w-full h-full">
                         <motion.div
-                            className="relative w-max h-3/4"
+                            className="relative w-fit h-3/4"
                             initial={{ scale: 0 }}
                             whileInView={{ scale: 1 }}
                             transition={{ duration: 0.8, type: "spring" }}
                         >
+                            <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-b from-5%  from-white to-transparent to-30%"></div>
                             <img
                                 src=""
                                 alt=""
                                 className="object-contain w-full h-full"
                                 id="image-modal-src"
                             />
-                            <div className="absolute bottom-0 w-full h-full bg-gradient-to-b from-5%  from-white to-transparent to-30%"></div>
                             <h1
                                 className="absolute text-3xl underline uppercase underline-offset-4 top-5 left-5"
                                 id="nama_project"
@@ -70,7 +69,7 @@ const ShowClient = (props) => {
                     >
                         <div className="image">
                             <img
-                                src={`../../storage/img/clients/${logo}`}
+                                src={`../public/img/clients/${logo}`}
                                 alt="Logo Client"
                                 className="h-40 shadow-lg"
                             />
