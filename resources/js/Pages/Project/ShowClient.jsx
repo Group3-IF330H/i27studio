@@ -1,7 +1,6 @@
 import CallToAction from "@/Components/CallToAction";
 import ClientsProjects from "@/Components/Projects/ClientsProjects";
 import Paginator from "@/Components/Projects/Paginator";
-import TextReveal from "@/Components/TextReveal";
 import PageLayout from "@/Layouts/PageLayout";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
@@ -17,7 +16,7 @@ const ShowClient = (props) => {
         const imageSrc = document.getElementById("image-modal-src");
         const nama_project = document.getElementById("nama_project");
 
-        imageSrc.src = `../public/img/projects/${imageUrl}`;
+        imageSrc.src = `../../storage/img/projects/${imageUrl}`;
         nama_project.innerHTML = nama + " - " + client;
         modal.classList.remove("hidden");
     };
@@ -69,7 +68,7 @@ const ShowClient = (props) => {
                     >
                         <div className="image">
                             <img
-                                src={`../public/img/clients/${logo}`}
+                                src={`../../storage/img/clients/${logo}`}
                                 alt="Logo Client"
                                 className="h-40 shadow-lg"
                             />

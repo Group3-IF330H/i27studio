@@ -13,7 +13,7 @@ const ClientsProjects = ({ data, index }) => {
                     </h1>
                 </div>
                 <img
-                    src={`../public/img/projects/${data?.gambar_project}`}
+                    src={`../../storage/img/projects/${data?.gambar_project}`}
                     alt="projects"
                     className="object-cover object-center w-full h-72"
                     loading="lazy"
