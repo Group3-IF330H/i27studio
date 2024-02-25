@@ -1,28 +1,51 @@
 import PageLayout from "@/Layouts/PageLayout";
 import ContainerLayout from "@/Layouts/ContainerLayout";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import Slider from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+import PrevButton from "@/Components/Homepage/PrevButton";
+import NextButton from "@/Components/Homepage/NextButton";
 
 const Homepage = (props) => {
     const project = props.project;
     const [currentSlide, setCurrentSlide] = useState(0);
+    const slider = useRef(null);
 
     const nextSlide = () => {
         setCurrentSlide((prevSlide) => (prevSlide + 1) % project.length);
+        slider?.current?.slickNext();
     };
 
     const prevSlide = () => {
         setCurrentSlide(
             (prevSlide) => (prevSlide - 1 + project.length) % project.length
         );
+        slider?.current?.slickPrev();
     };
 
     const setActiveSlide = (index) => {
         setCurrentSlide(index);
     };
 
+    const settings = {
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        infinite: true,
+        slidesToShow: 3,
+        slideToScroll: 1,
+        speed: 1000,
+        centerMode: true,
+        centerPadding: 0,
+        beforeChange: (current, next) => setCurrentSlide(next),
+    };
+
     return (
         <>
-            <PageLayout title={"Home"}>
+            <PageLayout title={"Home"} currentPath={"home"}>
                 <div className="relative slider">
                     <div className="absolute w-full h-screen opacity-[70%] -z-30 overlay">
                         <div className="w-full h-full bg-black"></div>
@@ -32,8 +55,8 @@ const Homepage = (props) => {
                             key={index}
                             className={`absolute slide w-full h-screen -z-40 ${
                                 index === currentSlide
-                                    ? "opacity-100"
-                                    : "opacity-0"
+                                    ? "opacity-100 duration-1000"
+                                    : "opacity-0 duration-1000"
                             }`}
                         >
                             <img
@@ -64,27 +87,11 @@ const Homepage = (props) => {
                         </div>
                         <div className="flex items-end justify-between bottom-section">
                             <div className="flex gap-2 arrow-button">
-                                <button
-                                    onClick={prevSlide}
-                                    className="w-12 h-12 p-3 rounded-full bg-white/20 backdrop-blur-3xl left-arrow hover:cursor-pointer"
-                                >
-                                    <img
-                                        src="../storage/img/icon/ph_arrow-up-light-1.svg"
-                                        alt=""
-                                    />
-                                </button>
-                                <button
-                                    onClick={nextSlide}
-                                    className="w-12 h-12 p-3 rounded-full bg-white/20 backdrop-blur-3xl left-arrow hover:cursor-pointer"
-                                >
-                                    <img
-                                        src="../storage/img/icon/ph_arrow-up-light.svg"
-                                        alt=""
-                                    />
-                                </button>
+                                <PrevButton prevSlide={prevSlide} />
+                                <NextButton nextSlide={nextSlide} />
                             </div>
 
-                            <div className="relative w-[60%] flex gap-8 flex-col justify-end">
+                            <div className="relative flex flex-col items-end w-[80%] gap-8">
                                 <div className="text-white text-end detail-project">
                                     {project[currentSlide] && (
                                         <div className="flex flex-col gap-2">
@@ -103,24 +110,30 @@ const Homepage = (props) => {
                                         </div>
                                     )}
                                 </div>
-                                <div className="overflow-hidden gallery-container">
-                                    <div className="flex justify-end gap-8">
+                                <div className="slider-container w-[70%]">
+                                    <Slider
+                                        {...settings}
+                                        ref={slider}
+                                        className="flex gap-10"
+                                    >
                                         {project.map((project, index) => (
                                             <div
                                                 key={index}
-                                                className="w-40 h-20 overflow-hidden"
-                                                onClick={() =>
-                                                    setActiveSlide(index)
-                                                }
+                                                className={`h-20 ${
+                                                    index === currentSlide
+                                                        ? "duration-500"
+                                                        : "opacity-70"
+                                                }`}
+                                                style={{ width: 200 }}
                                             >
                                                 <img
                                                     src={`../storage/img/projects/${project.gambar_project}`}
-                                                    alt="Stuio I27 Highlighted Project"
-                                                    className="object-cover w-full h-full hover:cursor-pointer"
+                                                    alt="Studio I27 Highlighted Project"
+                                                    className="object-cover w-full h-full"
                                                 />
                                             </div>
                                         ))}
-                                    </div>
+                                    </Slider>
                                 </div>
                             </div>
                         </div>
