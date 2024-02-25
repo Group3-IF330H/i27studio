@@ -29,10 +29,7 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('Homepage', [
-        'client' => Client::all(),
         'project' => Project::with(['Category', 'Client'])->get()->where("is_highlight", true)->values(),
-        "countProject" => Project::count(),
-        "countClient" => Client::count()
     ]);
 });
 

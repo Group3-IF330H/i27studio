@@ -22,6 +22,7 @@
     "dependencies": {
         "@heroicons/react": "^2.0.18",
         "framer-motion": "^10.16.4",
+        "framer-motion-carousel": "^2.0.4",
         "react-data-table-component": "^7.5.4",
         "react-fast-marquee": "^1.6.2",
         "react-photo-album": "^2.3.0",

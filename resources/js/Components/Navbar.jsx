@@ -1,51 +1,41 @@
 import { Link } from "@inertiajs/react";
 import React from "react";
-import Logo from "../../../public/logo.png";
+import NavLink from "./NavLink";
 
-const Navbar = ({ hidden }) => {
+const Navbar = () => {
     return (
-        <div className="navbar">
-            <div
-                className={
-                    "sidebar z-[100] hidden lg:block duration-500 sm:fixed top-0 bottom-0 w-[18.75rem] overflow-y-auto " +
-                    (hidden ? "-right-64" : "right-0")
-                }
-            >
-                <div className="flex flex-col items-end justify-between h-screen px-16 py-20 nav-item">
-                    <div className="flex flex-col items-end gap-1 nav-link">
-                        <div className="link">
-                            <Link href="/">
-                                <span className="text-2xl underline font-roboto hover:cursor-pointer hover:text-[#f24c03] hover:text-3xl duration-300">
-                                    Home
-                                </span>
-                            </Link>
-                        </div>
-                        <div className="link">
-                            <Link href="/about">
-                                <span className="text-2xl underline font-roboto hover:cursor-pointer hover:text-[#f24c03] hover:text-3xl duration-300">
-                                    About
-                                </span>
-                            </Link>
-                        </div>
-                        <div className="link">
-                            <Link href="/projects/all">
-                                <span className="text-2xl underline font-roboto hover:cursor-pointer hover:text-[#f24c03] hover:text-3xl duration-300">
-                                    Projects
-                                </span>
-                            </Link>
-                        </div>
-                        <div className="link">
-                            <Link href="/contact">
-                                <span className="text-2xl underline font-roboto hover:cursor-pointer hover:text-[#f24c03] hover:text-3xl duration-300">
-                                    Contact
-                                </span>
-                            </Link>
-                        </div>
+        <div className="fixed w-[320px] h-screen py-[64px] bg-[#EEEEEE] Navbar">
+            <div className="flex flex-col items-center justify-between h-full items">
+                <img src="../logo.png" alt="STUDIO I27 LOGO" className="w-32" />
+                <div className="flex flex-col gap-6 text-lg text-center nav-items">
+                    <Link href="/">
+                        <p className="font-light">Home</p>
+                    </Link>
+                    <Link href="/about">
+                        <p className="font-light">About</p>
+                    </Link>
+                    <Link href="/services">
+                        <p className="font-light">Services</p>
+                    </Link>
+                    <Link href="/projects">
+                        <p className="font-light">Projects</p>
+                    </Link>
+                    <Link href="/contact">
+                        <p className="font-light">Contact</p>
+                    </Link>
+                </div>
+                <div className="flex gap-8 social-media">
+                    <div className="ig">
+                        <img
+                            src="../storage/img/icon/mdi_instagram.svg"
+                            alt="STUDIO I27 INSTAGRAM"
+                        />
                     </div>
-                    <div className="nav-logo">
-                        <Link href="/">
-                            <img src={Logo} className="w-20" />
-                        </Link>
+                    <div className="whatsapp">
+                        <img
+                            src="../storage/img/icon/mdi_whatsapp.svg"
+                            alt="STUDIO I27 INSTAGRAM"
+                        />
                     </div>
                 </div>
             </div>
