@@ -27,8 +27,8 @@
         "react-data-table-component": "^7.5.4",
         "react-fast-marquee": "^1.6.2",
         "react-photo-album": "^2.3.0",
-        "react-router-dom": "^6.22.1",
-        "styled-components": "^6.1.1",
-        "use-places-autocomplete": "^4.0.1"
+        "react-slick": "^0.30.2",
+        "slick-carousel": "^1.8.1",
+        "styled-components": "^6.1.1"
     }
 }

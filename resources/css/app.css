@@ -16,3 +16,7 @@ body {
 .detail-project h2 {
     font-family: "DM Mono", monospace;
 }
+
+.slick-slide > div {
+    margin: 0 10px;
+}
