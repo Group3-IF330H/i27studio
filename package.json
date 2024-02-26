@@ -21,11 +21,14 @@
     },
     "dependencies": {
         "@heroicons/react": "^2.0.18",
+        "@react-google-maps/api": "^2.19.3",
         "framer-motion": "^10.16.4",
         "framer-motion-carousel": "^2.0.4",
         "react-data-table-component": "^7.5.4",
         "react-fast-marquee": "^1.6.2",
         "react-photo-album": "^2.3.0",
-        "styled-components": "^6.1.1"
+        "react-router-dom": "^6.22.1",
+        "styled-components": "^6.1.1",
+        "use-places-autocomplete": "^4.0.1"
     }
 }
