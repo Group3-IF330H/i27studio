@@ -46,6 +46,10 @@ Route::get('/contact', function () {
     return Inertia::render('Contact');
 })->name('contact');
 
+Route::get('/clients', function () {
+    return Inertia::render('Client', ['client' => Client::all()]);
+})->name('clients');
+
 Route::get('/welcome', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
