@@ -1,32 +1,6 @@
-import React, { useState, useMemo, useEffect } from "react";
-import { debounce } from "lodash";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
-const SearchInput = ({ projects, client }) => {
-    const [searchTerm, setSearchTerm] = useState("");
-
-    const handleChange = (e) => {
-        setSearchTerm(e.target.value);
-    };
-
-    if (searchTerm !== "") {
-        projects = projects.filter((project) => {
-            return project.nama_project
-                .toLowerCase()
-                .includes(searchTerm.toLowerCase());
-        });
-    }
-
-    let debouncedResults = useMemo(() => {
-        return debounce(handleChange, 700);
-    }, []);
-
-    useEffect(() => {
-        return () => {
-            debouncedResults.cancel();
-        };
-    });
-
+const SearchInput = ({ debounce, client }) => {
     return (
         <div
             className={
@@ -37,7 +11,7 @@ const SearchInput = ({ projects, client }) => {
             <MagnifyingGlassIcon className="w-5 h-5" />
             <input
                 type="text"
-                onChange={debouncedResults}
+                onChange={debounce}
                 className="w-full h-full border-none focus:ring-0 bg-[#fafafa]"
                 placeholder="Search Project"
             />
