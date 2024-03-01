@@ -34,7 +34,7 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return Inertia::render('About', ['data' => Employee::all(), "project" => Project::all()->take(50)]);
+    return Inertia::render('TestComponent', ["client" => Client::all(), "category" => Category::all(), "project" => Project::with(['Category', 'Client'])->get()]);
 })->name("about");
 
 Route::get('/projects', function () {
