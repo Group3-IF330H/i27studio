@@ -69,14 +69,14 @@ const Homepage = (props) => {
                 </div>
                 <ContainerLayout className="h-screen">
                     <div className="flex flex-col justify-between h-full home-item">
-                        <div className="grid grid-cols-12 gap-4 text-white heading">
-                            <h1 className="col-span-12 text-4xl font-semibold">
+                        <div className="flex flex-col grid-cols-12 gap-4 text-white lg:grid heading">
+                            <h1 className="col-span-12 text-lg font-semibold text-center lg:text-start md:text-3xl lg:text-4xl">
                                 Welcome to Studio I27, where innovative design
                                 meets precision engineering to transform visions
                                 into timeless structures that inspire and
                                 elevate the art of architecture.
                             </h1>
-                            <h1 className="col-span-11 text-justify opacity-70">
+                            <h1 className="text-xs text-center md:text-base lg:col-span-11 opacity-70 lg:text-justify">
                                 Since 2012 we have served all kinds of design
                                 plans from developers and custom projects
                                 throughout Indonesia, and are still continuing
@@ -86,23 +86,23 @@ const Homepage = (props) => {
                             </h1>
                         </div>
                         <div className="flex items-end justify-between bottom-section">
-                            <div className="flex gap-2 arrow-button">
+                            <div className="hidden gap-2 lg:flex arrow-button">
                                 <PrevButton prevSlide={prevSlide} />
                                 <NextButton nextSlide={nextSlide} />
                             </div>
 
-                            <div className="relative flex flex-col items-end w-[80%] gap-8">
-                                <div className="text-white text-end detail-project">
+                            <div className="relative flex flex-col items-end lg:w-[80%] w-[100%] gap-8">
+                                <div className="w-full text-white text-end detail-project">
                                     {project[currentSlide] && (
                                         <div className="flex flex-col gap-2">
-                                            <h2 className="text-3xl font-medium">
+                                            <h2 className="font-medium text-center lg:text-end md:text-3xl">
                                                 {project[currentSlide].client
                                                     .nama_client +
                                                     " " +
                                                     project[currentSlide]
                                                         .nama_project}
                                             </h2>
-                                            <h2 className="text-2xl font-light">
+                                            <h2 className="font-light text-center md:text-2xl lg:text-end">
                                                 {project[currentSlide].client
                                                     .lokasi_client +
                                                     ", Indonesia"}
@@ -110,7 +110,7 @@ const Homepage = (props) => {
                                         </div>
                                     )}
                                 </div>
-                                <div className="slider-container w-[70%]">
+                                <div className="slider-container lg:w-[70%] 2xl:w-[45%] w-[100%]">
                                     <Slider
                                         {...settings}
                                         ref={slider}

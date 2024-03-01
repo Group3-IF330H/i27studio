@@ -3,7 +3,7 @@ import NavLink from "./NavLink";
 
 const Navbar = ({ currenPath }) => {
     return (
-        <div className="fixed w-[320px] h-screen py-[64px] bg-[#EEEEEE] Navbar">
+        <div className="fixed w-[320px] h-screen py-[64px] bg-[#EEEEEE] Navbar hidden lg:block">
             <div className="flex flex-col items-center justify-between h-full items">
                 <img src="../logo.png" alt="STUDIO I27 LOGO" className="w-32" />
                 <div className="flex flex-col w-full gap-6 text-lg text-center nav-items">
