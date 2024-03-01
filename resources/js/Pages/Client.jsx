@@ -10,13 +10,13 @@ const Client = (props) => {
     return (
         <>
             <PageLayout title={"Client"}>
-                <div className="relative">
+                <div className="relative"> 
                     <div className="absolute w-full h-screen opacity-[70%] -z-30 overlay">
                         <div className="w-full h-full bg-black"></div>
                     </div>
                     <div className="absolute w-full h-screen -z-40">
                         <img
-                            src={`../storage/img/projects/aJYFgP8J8u4CWns5A7kHvoiTZvPlFrUg6jOVdHVG.webp`}
+                            src={`../storage/img/clients/bgclient.webp`}
                             alt="Studio I27 Client"
                             className="object-cover w-full h-full"
                         />
