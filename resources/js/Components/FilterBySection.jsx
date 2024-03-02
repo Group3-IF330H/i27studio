@@ -1,6 +1,6 @@
 import React from "react";
 
-const FilterBySection = ({ data, title }) => {
+const FilterBySection = ({ data, title, handleChange }) => {
     return (
         <div className={`${data}-filter`}>
             <div className="text-xl filter-title text-[#f24c03]">
@@ -17,6 +17,7 @@ const FilterBySection = ({ data, title }) => {
                             className="apperance-none checked:bg-[#f24c03] active:bg-[#f24c03] focus:bg-[#f24c03] focus:ring-[#f24c03]"
                             id={data.id}
                             name={data.nama_client || data.nama_category}
+                            onChange={() => handleChange(data.nama_category)}
                         />
                         <label htmlFor={data.nama_ + title.toLowerCase()}>
                             {data.nama_client || data.nama_category}

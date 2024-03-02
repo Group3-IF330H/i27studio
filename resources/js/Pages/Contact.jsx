@@ -3,49 +3,81 @@ import ContainerLayout from "@/Layouts/ContainerLayout";
 import CallToActionWhatsapp from "@/Components/CallToActionWhatsapp";
 import Map from "@/Components/Map";
 import React from "react";
+import Heading from "@/Components/Heading";
 
 const Contact = () => {
-
     return (
         <>
-            <PageLayout title={"Contact"}>
-                <ContainerLayout className="h-screen flex flex-col">
-                    <h1 className="text-[#f24D03] text-xl 2xl:text-2xl font-medium">CONTACT</h1>
-                    <h1 className="text-[#000000] text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl pt-5 font-bold">Reach out. Let's discuss<br />your vision. Contact<br />details below.</h1>
-
-                    <div className="contact-item grid 2xl:grid-cols-12 xl:grid-cols-10 gap-5 xl:pt-7 2xl:pt-10 w-full">
-                        <div className="map grid 2xl:col-span-7 xl:col-span-5 drop-shadow-lg">
+            <PageLayout title={"Contact"} currentPath={"contact"}>
+                <ContainerLayout className="flex flex-col lg:h-screen">
+                    <Heading
+                        pageName={"CONTACT"}
+                        pageDescription={
+                            "Reach out. Let's discuss your vision. Contact details below."
+                        }
+                    />
+                    <div className="flex flex-col grid-cols-12 gap-10 lg:h-full lg:grid">
+                        <div className="col-span-6 h-60 map lg:h-full">
                             <Map />
                         </div>
+                        <div className="flex flex-col col-span-6 gap-6 lg:gap-0 lg:justify-between">
+                            <div className="location">
+                                <h1 className="text-xl font-semibold lg:text-2xl">
+                                    Location
+                                </h1>
+                                <p className="mt-1 font-light opacity-50 lg:mt-2 lg:text-xl">
+                                    Blok I20/20, Taman Carribian, Citra Raya,
+                                    Kabupaten Tangerang
+                                </p>
+                            </div>
+                            <div className="flex flex-col grid-cols-12 gap-6 lg:grid email-and-contact">
+                                <div className="col-span-6 Email">
+                                    <h1 className="text-xl font-semibold lg:text-2xl">
+                                        Email
+                                    </h1>
+                                    <p className="mt-1 font-light opacity-50 lg:mt-2 lg:text-xl">
+                                        studioi27@yahoo.com
+                                    </p>
+                                </div>
+                                <div className="col-span-6 Contact ">
+                                    <h1 className="text-xl font-semibold lg:text-2xl">
+                                        Contact
+                                    </h1>
+                                    <p className="mt-1 font-light opacity-50 lg:mt-2 lg:text-xl">
+                                        0881-0252-85404
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex flex-col grid-cols-12 gap-6 lg:grid contact-person">
+                                <div className="col-span-6 person1">
+                                    <h1 className="text-xl font-semibold lg:text-2xl">
+                                        Contact Person 1
+                                    </h1>
+                                    <div className="flex gap-2 lg:block contact-detail">
+                                        <p className="mt-1 font-light opacity-50 lg:mt-2 lg:text-xl">
+                                            0812-1049-8587
+                                        </p>
+                                        <p className="mt-1 font-light opacity-50 lg:mt-2 lg:text-xl">
+                                            [ Retno Datmayanti ]
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="col-span-6 person2">
+                                    <h1 className="text-xl font-semibold lg:text-2xl">
+                                        Contact Person 2
+                                    </h1>
+                                    <div className="flex gap-2 lg:block contact-detail">
+                                        <p className="mt-1 font-light opacity-50 lg:mt-2 lg:text-xl">
+                                            0815-1074-8047
+                                        </p>
+                                        <p className="mt-1 font-light opacity-50 lg:mt-2 lg:text-xl">
+                                            [ Neneng Ratna ]
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <div className="contact-data 2xl:col-span-5 xl:col-span-5 grid pl-5 xl:gap-3 2xl:gap-6">
-                            <div className="grid grid-cols-12">
-                                <div className="col-span-12">
-                                    <h1 className="font-semibold xl:text-xl 2xl:text-2xl">Location</h1>
-                                    <h1 className="data-text font-light text-[#000000] opacity-50 xl:text-lg 2xl:text-xl">Blok 120/20, Taman Carribian, Citra Raya, Kabupaten Tangerang</h1>
-                                </div>
-                            </div>
-                            <div className="grid grid-cols-12 xl:gap-10 2xl:gap-11">
-                                <div className="col-span-6">
-                                    <h1 className="font-semibold xl:text-xl 2xl:text-2xl">Email</h1>
-                                    <h1 className="font-light text-[#000000] opacity-50 xl:text-lg 2xl:text-xl">studioi27@yahoo.com</h1>
-                                </div>
-                                <div className="col-span-6">
-                                    <h1 className="font-semibold xl:text-xl 2xl:text-2xl">Contact</h1>
-                                    <h1 className="font-light text-[#000000] opacity-50 xl:text-lg 2xl:text-xl">(021) 59404099</h1>
-                                </div>
-                            </div>
-                            <div className="grid grid-cols-12 xl:gap-10 2xl:gap-11">
-                                <div className="col-span-6">
-                                    <h1 className="font-semibold xl:text-xl 2xl:text-2xl">Contact Person 1</h1>
-                                    <h1 className="font-light text-[#000000] opacity-50 xl:text-lg 2xl:text-xl">+62 812-1049-8587<br />[ Retno Datmayanti ]</h1>
-                                </div>
-                                <div className="col-span-6">
-                                    <h1 className="font-semibold xl:text-xl 2xl:text-2xl">Contact Person 2</h1>
-                                    <h1 className="font-light text-[#000000] opacity-50 xl:text-lg 2xl:text-xl">+62 815-1074-8047<br />[ Neneng Ratna ]</h1>
-                                </div>
-                            </div>
-                            <div className="grid grid-cols-12">
+                            <div className="WhatsappButton">
                                 <CallToActionWhatsapp />
                             </div>
                         </div>

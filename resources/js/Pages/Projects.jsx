@@ -1,23 +1,51 @@
 import PageLayout from "@/Layouts/PageLayout";
 import ContainerLayout from "@/Layouts/ContainerLayout";
-import React from "react";
-import SearchFilterComponent from "@/Components/SearchFilterComponent";
-import FilterButton from "@/Components/FilterButton";
 import { useState, useEffect, useMemo } from "react";
+import SearchFilterComponent from "@/Components/SearchFilterComponent";
 import { debounce } from "lodash";
+import Heading from "@/Components/Heading";
+import Paginator from "@/Components/Paginator";
+import { NoSymbolIcon } from "@heroicons/react/24/outline";
 
 const Projects = (props) => {
-    let project = props.data;
-    // console.log("Props received by Projects component:", props);
+    const category = props.category;
+    let allProjects = props.projectAll;
+    let paginateData = props.project.data;
 
     const [searchTerm, setSearchTerm] = useState("");
+    const [isDataEmpty, setIsDataEmpty] = useState(false);
+    let [projects, setProjects] = useState(allProjects);
+
+    useEffect(() => {
+        if (searchTerm !== "") {
+            const filteredProjects = allProjects.filter((project) => {
+                return project.nama_project
+                    .toLowerCase()
+                    .includes(searchTerm.toLowerCase());
+            });
+            setProjects(filteredProjects);
+
+            if (filteredProjects.length > 0) {
+                setIsDataEmpty(false);
+            } else {
+                setIsDataEmpty(true);
+            }
+        } else {
+            setProjects(allProjects);
+            if (allProjects.length > 0) {
+                setIsDataEmpty(false);
+            } else {
+                setIsDataEmpty(true);
+            }
+        }
+    }, [searchTerm, allProjects, isDataEmpty]);
 
     const handleChange = (e) => {
         setSearchTerm(e.target.value);
     };
 
     if (searchTerm !== "") {
-        project = project.filter((project) => {
+        paginateData = projects.filter((project) => {
             return project.nama_project
                 .toLowerCase()
                 .includes(searchTerm.toLowerCase());
@@ -37,31 +65,25 @@ const Projects = (props) => {
     return (
         <>
             <PageLayout title={"Projects"} currentPath={"projects"}>
-                <ContainerLayout className="h-screen">
+                <ContainerLayout>
                     <div className="h-full">
-                        <div>
-                            <h1 className="text-[#F24D03] text-2xl font-medium">
-                                PROJECTS
-                            </h1>
-                            <p className="text-[#000000] text-5xl font-bold mt-4 grid grid-cols-2">
-                                Projects are windows to rethink, redesign, and
-                                reshape futures.
-                            </p>
+                        <Heading
+                            pageName={"PROJECTS"}
+                            pageDescription={
+                                "Projects are windows to rethink, redesign, and reshape futures"
+                            }
+                        />
+                        <div className="search-filter">
+                            <SearchFilterComponent
+                                project={projects}
+                                category={category ? category : null}
+                                debounce={debouncedResults}
+                            />
                         </div>
-                        <div className="grid grid-cols-5 gap-4 mt-8">
-                            <div className="col-span-4">
-                                <SearchFilterComponent
-                                    project={project}
-                                    debounce={debouncedResults}
-                                />
-                            </div>
-                            <div className="col-span-1 h-10">
-                                <FilterButton />
-                            </div>
-                        </div>
+
                         <div>
-                            <div className="grid grid-cols-2 gap-4 mt-8">
-                                {project.map((project, index) => (
+                            <div className="flex flex-col grid-cols-2 gap-4 mt-8 md:grid">
+                                {paginateData.map((project, index) => (
                                     <div className="relative h-96" key={index}>
                                         <div className="absolute inset-0 bg-gradient-to-t from-black from-1% to-transparent to-99% opacity-70 overlay"></div>
                                         <img
@@ -70,7 +92,7 @@ const Projects = (props) => {
                                             className="object-cover w-full h-full"
                                         />
 
-                                        <div className="absolute bottom-0 left-0 text-white p-4">
+                                        <div className="absolute bottom-0 left-0 p-4 text-white">
                                             <h2 className="text-2xl tracking-wide">
                                                 {project.nama_project}
                                             </h2>
@@ -83,6 +105,19 @@ const Projects = (props) => {
                                 ))}
                             </div>
                         </div>
+                        {isDataEmpty && (
+                            <div className="flex flex-col items-center justify-center h-full gap-6 p-10">
+                                <NoSymbolIcon className="w-16 h-16" />
+                                <h1 className="md:text-2xl">
+                                    No Projects Found
+                                </h1>
+                            </div>
+                        )}
+                        {!searchTerm && !isDataEmpty && (
+                            <div className="paginator">
+                                <Paginator meta={props.project} />
+                            </div>
+                        )}
                     </div>
                 </ContainerLayout>
             </PageLayout>

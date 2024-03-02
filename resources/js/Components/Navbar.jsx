@@ -17,7 +17,7 @@ const Navbar = ({ currenPath }) => {
                         Home
                     </NavLink>
                     <NavLink
-                        href="/projects"
+                        href="/projects/all"
                         active={currenPath === "projects"}
                     >
                         Projects

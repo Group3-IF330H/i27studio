@@ -34,12 +34,9 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return Inertia::render('TestComponent', ["client" => Client::all(), "category" => Category::all(), "project" => Project::with(['Category', 'Client'])->get()]);
+    return Inertia::render('About', ["client" => Client::all(), "category" => Category::all(), "project" => Project::with(['Category', 'Client'])->get()]);
 })->name("about");
 
-Route::get('/projects', function () {
-    return Inertia::render('Projects', ['data' => Project::with(['Category', 'Client'])->get()]);
-})->name("projects");
 
 Route::controller(ProjectController::class)->group(function () {
     Route::get('/projects/{category}', 'category')->name("project.category");
