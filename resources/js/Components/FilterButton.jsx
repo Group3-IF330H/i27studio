@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { MinusIcon, PlusIcon } from "@heroicons/react/24/outline";
 
-const FilterButton = () => {
-    const [isFilterShown, setIsFilterShown] = useState(true);
-
+const FilterButton = ({ setIsFilterShown, isFilterShown }) => {
     return (
         <div className="flex items-center h-full col-span-12 px-2 py-2 border border-gray-900 lg:py-0 lg:col-span-5 filter-component">
             <button

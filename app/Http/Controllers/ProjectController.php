@@ -168,6 +168,17 @@ class ProjectController extends Controller
         ]);
     }
 
+    public function detail ($nama_project) {
+        $project = Project::with(['Category', 'Client'])
+            ->where('nama_project', $nama_project)
+            ->first();
+
+        return Inertia::render('DetailProject', [
+            'project' => $project
+        ]);
+    
+    }
+
     public function checked(Request $request, $id)
     {
         $project = Project::findOrFail($id);

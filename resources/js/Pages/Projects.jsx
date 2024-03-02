@@ -6,6 +6,7 @@ import { debounce } from "lodash";
 import Heading from "@/Components/Heading";
 import Paginator from "@/Components/Paginator";
 import { NoSymbolIcon } from "@heroicons/react/24/outline";
+import { Link } from "@inertiajs/react";
 
 const Projects = (props) => {
     const category = props.category;
@@ -84,7 +85,11 @@ const Projects = (props) => {
                         <div>
                             <div className="flex flex-col grid-cols-2 gap-4 mt-8 md:grid">
                                 {paginateData.map((project, index) => (
-                                    <div className="relative h-96" key={index}>
+                                    <Link
+                                        href={`/project/${project.nama_project}`}
+                                        className="relative duration-200 h-96 hover:scale-[95%] hover:cursor-pointer hover:shadow-2xl"
+                                        key={index}
+                                    >
                                         <div className="absolute inset-0 bg-gradient-to-t from-black from-1% to-transparent to-99% opacity-70 overlay"></div>
                                         <img
                                             src={`../storage/img/projects/${project.gambar_project}`}
@@ -101,7 +106,7 @@ const Projects = (props) => {
                                                 Indonesia
                                             </p>
                                         </div>
-                                    </div>
+                                    </Link>
                                 ))}
                             </div>
                         </div>

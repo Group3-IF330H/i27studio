@@ -74,12 +74,7 @@ class ClientController extends Controller
      */
     public function update(Request $request)
     {
-        // Client::where('id', $request->id)->update([
-        //     'nama_client' => $request->nama_client,
-        //     'lokasi_client' => $request->lokasi_client,
-        //     'logo_client' => $request->logo_client,
-        // ]);
-        // return redirect('/client');
+        
         $request->validate([
             'nama_client' => 'required',
             'lokasi_client' => 'required',

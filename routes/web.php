@@ -40,6 +40,7 @@ Route::get('/about', function () {
 
 Route::controller(ProjectController::class)->group(function () {
     Route::get('/projects/{category}', 'category')->name("project.category");
+    Route::get('/project/{nama_project}', 'detail')->name('project.detail');
     Route::get('/projects/client/{client}', 'show')->name('project.show');
 });
 
