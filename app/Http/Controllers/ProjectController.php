@@ -149,20 +149,34 @@ class ProjectController extends Controller
     public function category($categoryName)
     {
         if ($categoryName === "all") {
-            $projects = Project::with(['Category', 'Client'])->paginate(12);
+            $project = Project::with(['Category', 'Client'])->paginate(12);
+            $projectAll = Project::with(['Category', 'Client'])->get();
         } else {
             $projects = Project::with(['Category', 'Client'])
                 ->whereHas('Category', function ($query) use ($categoryName) {
                     $query->where('nama_category', $categoryName);
                 })
                 ->paginate(12);
+            $projectAll = Project::with(['Category', 'Client'])->get();
         }
 
         return Inertia::render('Projects', [
-            'project' => $projects,
+            'project' => $project,
+            'projectAll' => $projectAll,
             'category' => Category::all(),
             'categoryNama' => $categoryName
         ]);
+    }
+
+    public function detail ($nama_project) {
+        $project = Project::with(['Category', 'Client'])
+            ->where('nama_project', $nama_project)
+            ->first();
+
+        return Inertia::render('DetailProject', [
+            'project' => $project
+        ]);
+    
     }
 
     public function checked(Request $request, $id)
@@ -170,6 +184,5 @@ class ProjectController extends Controller
         $project = Project::findOrFail($id);
         $project->is_highlight = $request->is_checked;
         $project->save();
-        // dd($request->is_checked);
     }
 }
