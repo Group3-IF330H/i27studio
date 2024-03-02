@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "@heroicons/react": "^2.0.18",
+        "@tailwindcss/aspect-ratio": "^0.4.2",
         "framer-motion": "^10.16.4",
         "framer-motion-carousel": "^2.0.4",
         "react-data-table-component": "^7.5.4",
