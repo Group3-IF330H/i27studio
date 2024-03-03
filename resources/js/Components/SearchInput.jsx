@@ -12,7 +12,7 @@ const SearchInput = ({ debounce, category }) => {
             <input
                 type="text"
                 onChange={debounce}
-                className="w-full h-full border-none focus:ring-0 bg-[#fafafa]"
+                className="w-full h-full bg-transparent border-none focus:ring-0"
                 placeholder="Search Project"
             />
         </div>

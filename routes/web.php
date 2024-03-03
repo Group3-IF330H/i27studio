@@ -40,7 +40,7 @@ Route::get('/about', function () {
 
 Route::controller(ProjectController::class)->group(function () {
     Route::get('/projects/{category}', 'category')->name("project.category");
-    Route::get('/project/{nama_project}', 'detail')->name('project.detail');
+    Route::get('/detail-project/{nama_project}', 'detail')->name('project.detail');
     Route::get('/client-project/{client}', 'show')->name('project.show');
 });
 
@@ -60,8 +60,6 @@ Route::get('/welcome', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
-
-Route::post('/test', [MailController::class, 'MakeMail'])->name('contact.mail');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

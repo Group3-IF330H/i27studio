@@ -1,4 +1,5 @@
-import React from "react";
+import { useState, useEffect, useMemo } from "react";
+import { debounce } from "lodash";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, useForm } from "@inertiajs/react";
 import Dropdown from "@/Components/Dropdown";
@@ -6,8 +7,72 @@ import DataTable from "react-data-table-component";
 import SecondaryButton from "@/Components/SecondaryButton";
 import DangerButton from "@/Components/DangerButton";
 import CreateProjectForm from "./Partials/CreateProjectForm";
+import SearchFilterComponent from "@/Components/SearchFilterComponent";
 
 const ShowProject = ({ auth, project, category, client }) => {
+    let allProjects = project;
+    let paginateData = project;
+
+    const [searchTerm, setSearchTerm] = useState("");
+    const [isDataEmpty, setIsDataEmpty] = useState(false);
+    let [projects, setProjects] = useState(allProjects);
+
+    useEffect(() => {
+        if (searchTerm !== "") {
+            const filteredProjects = allProjects.filter((project) => {
+                return (
+                    project.nama_project
+                        .toLowerCase()
+                        .includes(searchTerm.toLowerCase()) ||
+                    project.client.nama_client
+                        .toLowerCase()
+                        .includes(searchTerm.toLowerCase())
+                );
+            });
+            setProjects(filteredProjects);
+
+            if (filteredProjects.length > 0) {
+                setIsDataEmpty(false);
+            } else {
+                setIsDataEmpty(true);
+            }
+        } else {
+            setProjects(allProjects);
+            if (allProjects.length > 0) {
+                setIsDataEmpty(false);
+            } else {
+                setIsDataEmpty(true);
+            }
+        }
+    }, [searchTerm, allProjects, isDataEmpty]);
+
+    const handleChange = (e) => {
+        setSearchTerm(e.target.value);
+    };
+
+    if (searchTerm !== "") {
+        paginateData = projects.filter((project) => {
+            return (
+                project.nama_project
+                    .toLowerCase()
+                    .includes(searchTerm.toLowerCase()) ||
+                project.client.nama_client
+                    .toLowerCase()
+                    .includes(searchTerm.toLowerCase())
+            );
+        });
+    }
+
+    const debouncedResults = useMemo(() => {
+        return debounce(handleChange, 700);
+    }, []);
+
+    useEffect(() => {
+        return () => {
+            debouncedResults.cancel();
+        };
+    });
+
     const confirmingDelete = (e) => {
         const isConfirmed = confirm("Are you sure you want to delete?");
         if (!isConfirmed) {
@@ -105,10 +170,11 @@ const ShowProject = ({ auth, project, category, client }) => {
             <Head title="Projects" />
             <div className="py-8">
                 <div className="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
+                    <SearchFilterComponent debounce={debouncedResults} />
                     <CreateProjectForm client={client} category={category} />
                     <DataTable
                         columns={columns}
-                        data={project}
+                        data={paginateData}
                         responsive
                         highlightOnHover
                         pagination

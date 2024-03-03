@@ -3,7 +3,12 @@ import FilterButton from "./FilterButton";
 import FilterDropdown from "./FilterDropdown";
 import { useState } from "react";
 
-const SearchFilterComponent = ({ debounce, category, handleChange }) => {
+const SearchFilterComponent = ({
+    debounce,
+    category,
+    handleCategorySelect,
+    handleSaveFilter,
+}) => {
     const [isFilterShown, setIsFilterShown] = useState(true);
 
     return (
@@ -16,8 +21,9 @@ const SearchFilterComponent = ({ debounce, category, handleChange }) => {
                         isFilterShown={isFilterShown}
                     />
                     <FilterDropdown
+                        handleCategorySelect={handleCategorySelect}
+                        handleSaveFilter={handleSaveFilter}
                         category={category}
-                        handleChange={handleChange}
                         setIsFilterShown={setIsFilterShown}
                         isFilterShown={isFilterShown}
                     />

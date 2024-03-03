@@ -5,9 +5,10 @@ import SaveFilterButton from "./SaveFilterButton";
 
 const FilterDropdown = ({
     category,
-    handleChange,
     setIsFilterShown,
     isFilterShown,
+    handleCategorySelect,
+    handleSaveFilter,
 }) => {
     return (
         <div className="grid hidden col-span-12 grid-col-12 filter-dropdown">
@@ -16,7 +17,7 @@ const FilterDropdown = ({
                 <FilterBySection
                     data={category}
                     title="Category"
-                    handleChange={handleChange}
+                    handleCategorySelect={handleCategorySelect}
                 />
             </div>
             <div className="flex flex-col gap-4 mt-8 md:flex-row save-filter-button">
@@ -24,7 +25,7 @@ const FilterDropdown = ({
                     setIsFilterShown={setIsFilterShown}
                     isFilterShown={isFilterShown}
                 />
-                <SaveFilterButton />
+                <SaveFilterButton handleSaveFilter={handleSaveFilter} />
             </div>
         </div>
     );

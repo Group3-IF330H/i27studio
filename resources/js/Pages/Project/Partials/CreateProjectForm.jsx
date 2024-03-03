@@ -5,6 +5,7 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import Modal from "@/Components/Modal";
 import InputError from "@/Components/InputError";
 import SecondaryButton from "@/Components/SecondaryButton";
+import SearchFilterComponent from "@/Components/SearchFilterComponent";
 
 const CreateProjectForm = (props) => {
     const [createProject, setCreateProject] = useState(false);

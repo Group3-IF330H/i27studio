@@ -15,14 +15,21 @@ const Projects = (props) => {
 
     const [searchTerm, setSearchTerm] = useState("");
     const [isDataEmpty, setIsDataEmpty] = useState(false);
+    const [categories, setCategories] = useState([]);
+    const [isCategorySelected, setIsCategorySelected] = useState(true);
+    const [selectedCategories, setSelectedCategories] = useState([]);
     let [projects, setProjects] = useState(allProjects);
 
     useEffect(() => {
         if (searchTerm !== "") {
             const filteredProjects = allProjects.filter((project) => {
-                return project.nama_project
+                const matchesSearchTerm = project.nama_project
                     .toLowerCase()
                     .includes(searchTerm.toLowerCase());
+                const matchesCategory =
+                    categories.length === 0 ||
+                    categories.includes(project.category.nama_category);
+                return matchesSearchTerm && matchesCategory;
             });
             setProjects(filteredProjects);
 
@@ -31,6 +38,12 @@ const Projects = (props) => {
             } else {
                 setIsDataEmpty(true);
             }
+
+            if (categories.length > 0) {
+                setIsCategorySelected(true);
+            } else {
+                setIsCategorySelected(false);
+            }
         } else {
             setProjects(allProjects);
             if (allProjects.length > 0) {
@@ -38,20 +51,46 @@ const Projects = (props) => {
             } else {
                 setIsDataEmpty(true);
             }
+
+            if (categories.length > 0) {
+                setIsCategorySelected(true);
+            } else {
+                setIsCategorySelected(false);
+            }
         }
-    }, [searchTerm, allProjects, isDataEmpty]);
+    }, [searchTerm, allProjects, isDataEmpty, isCategorySelected, categories]);
 
     const handleChange = (e) => {
         setSearchTerm(e.target.value);
     };
 
-    if (searchTerm !== "") {
+    if (searchTerm !== "" || categories.length > 0) {
         paginateData = projects.filter((project) => {
-            return project.nama_project
+            const matchesSearchTerm = project.nama_project
                 .toLowerCase()
                 .includes(searchTerm.toLowerCase());
+            const matchesCategory =
+                categories.length === 0 ||
+                categories.includes(project.category.nama_category);
+            return matchesSearchTerm && matchesCategory;
         });
     }
+
+    const handleCategorySelect = (category) => {
+        setSelectedCategories((prevCategories) => {
+            if (prevCategories.includes(category)) {
+                return prevCategories.filter(
+                    (prevCategory) => prevCategory !== category
+                );
+            } else {
+                return [...prevCategories, category];
+            }
+        });
+    };
+
+    const handleSaveFilter = () => {
+        setCategories(selectedCategories);
+    };
 
     const debouncedResults = useMemo(() => {
         return debounce(handleChange, 700);
@@ -79,6 +118,8 @@ const Projects = (props) => {
                                 project={projects}
                                 category={category ? category : null}
                                 debounce={debouncedResults}
+                                handleCategorySelect={handleCategorySelect}
+                                handleSaveFilter={handleSaveFilter}
                             />
                         </div>
 
@@ -86,7 +127,7 @@ const Projects = (props) => {
                             <div className="flex flex-col grid-cols-2 gap-4 mt-8 md:grid">
                                 {paginateData.map((project, index) => (
                                     <Link
-                                        href={`/project/${project.nama_project}`}
+                                        href={`/detail-project/${project.nama_project}`}
                                         className="relative duration-200 h-96 hover:scale-[95%] hover:cursor-pointer hover:shadow-2xl"
                                         key={index}
                                     >
@@ -118,7 +159,7 @@ const Projects = (props) => {
                                 </h1>
                             </div>
                         )}
-                        {!searchTerm && !isDataEmpty && (
+                        {!searchTerm && !isDataEmpty && !isCategorySelected && (
                             <div className="paginator">
                                 <Paginator meta={props.project} />
                             </div>
