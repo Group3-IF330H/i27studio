@@ -34,14 +34,14 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return Inertia::render('About', ["client" => Client::all(), "category" => Category::all(), "project" => Project::with(['Category', 'Client'])->get()]);
+    return Inertia::render('About', ["data" => Employee::all()]);
 })->name("about");
 
 
 Route::controller(ProjectController::class)->group(function () {
     Route::get('/projects/{category}', 'category')->name("project.category");
     Route::get('/project/{nama_project}', 'detail')->name('project.detail');
-    Route::get('/projects/client/{client}', 'show')->name('project.show');
+    Route::get('/client-project/{client}', 'show')->name('project.show');
 });
 
 Route::get('/contact', function () {

@@ -5,6 +5,7 @@ import {
     PhotoIcon,
     XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { Link } from "@inertiajs/react";
 import { useState } from "react";
 
 const DetailProject = (props) => {
@@ -21,13 +22,9 @@ const DetailProject = (props) => {
 
     return (
         <>
-            <PageLayout
-                title={"Detail Projects"}
-                currentPath={"details"}
-                path={"detail"}
-            >
+            <PageLayout title={project.nama_project} currentPath={"details"}>
                 <ContainerLayout className="h-screen">
-                    <div className="grid h-full grid-cols-12 gap-10">
+                    <div className="flex flex-col h-full grid-cols-12 gap-5 md:gap-10 lg:grid">
                         <div className="col-span-6 project-image">
                             <img
                                 src={`../storage/img/projects/${project.gambar_project}`}
@@ -35,29 +32,35 @@ const DetailProject = (props) => {
                                 className="object-cover object-center h-full"
                             />
                         </div>
-                        <div className="flex flex-col justify-between col-span-6 project-detail">
+                        <div className="flex flex-col justify-between h-full col-span-6 lg:gap-0 project-detail">
                             <div className="flex flex-col gap-6 text-detail">
-                                <div className="flex flex-col gap-3 project-name">
-                                    <h1 className="text-4xl">Project Name</h1>
-                                    <p className="text-2xl text-[#f24c03] font-light">
+                                <div className="flex flex-col gap-2 md:gap-3 project-name">
+                                    <h1 className="text-2xl md:text-4xl">
+                                        Project Name
+                                    </h1>
+                                    <p className="md:text-2xl text-lg text-[#f24c03] font-light">
                                         {project.nama_project}
                                     </p>
                                 </div>
-                                <div className="flex flex-col gap-3 project-location">
-                                    <h1 className="text-4xl">Location</h1>
-                                    <p className="text-2xl text-[#f24c03] font-light">
+                                <div className="flex flex-col gap-2 md:gap-3 project-location">
+                                    <h1 className="text-2xl md:text-4xl">
+                                        Location
+                                    </h1>
+                                    <p className="md:text-2xl text-lg text-[#f24c03] font-light">
                                         {project.client.lokasi_client}
                                     </p>
                                 </div>
-                                <div className="flex flex-col gap-3 project-client">
-                                    <h1 className="text-4xl">Client</h1>
+                                <div className="flex flex-col gap-2 md:gap-3 project-client">
+                                    <h1 className="text-2xl md:text-4xl">
+                                        Client
+                                    </h1>
                                     <div className="flex items-center gap-3 client">
                                         <img
                                             src={`../storage/img/clients/${project.client.logo_client}`}
                                             alt=""
-                                            className="object-cover object-center h-10"
+                                            className="object-cover object-center h-10 md:h-16"
                                         />
-                                        <p className="text-2xl text-[#f24c03] font-light">
+                                        <p className="md:text-2xl text-lg text-[#f24c03] font-light">
                                             {project.client.nama_client}
                                         </p>
                                     </div>
@@ -74,13 +77,16 @@ const DetailProject = (props) => {
                                     </button>
                                 </div>
                                 <div className="see-image-button">
-                                    <button className="flex items-center justify-center w-full gap-2 py-3 border border-[#fafafa] bg-[#f24c03] hover:border-[#f24c03] hover:bg-[#fafafa] duration-300 hover:text-[#f24c03] text-[#fafafa] ">
+                                    <Link
+                                        href={`/client-project/${project.client.nama_client}`}
+                                        className="flex items-center justify-center w-full gap-2 py-3 border border-[#fafafa] bg-[#f24c03] hover:border-[#f24c03] hover:bg-[#fafafa] duration-300 hover:text-[#f24c03] text-[#fafafa] "
+                                    >
                                         <h1>
                                             Check {project.client.nama_client}{" "}
                                             Projects
                                         </h1>
-                                        <ArrowUpRightIcon className="w-5 h-5 " />
-                                    </button>
+                                        <ArrowUpRightIcon className="w-5 h-5" />
+                                    </Link>
                                 </div>
                             </div>
                         </div>

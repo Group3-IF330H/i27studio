@@ -76,10 +76,13 @@ class ProjectController extends Controller
                 $query->where('nama_client', $clientName);
             })
             ->paginate(12);
+        
+        $category = Category::all();
 
-        return Inertia::render('Project/ShowClient', [
+        return Inertia::render('ClientProjects', [
             'projects' => $projects,
-            'client' => $clientName
+            'client' => $clientName,
+            'category' => $category
         ]);
     }
 
