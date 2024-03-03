@@ -93,8 +93,8 @@ const MobileNavbar = ({ currenPath }) => {
             </div>
             <div
                 className={
-                    `fixed flex flex-col z-50 px-8 mt-[75px] w-[60%] md:w-full right-0 h-screen bg-white md:px-12 nav-items ` +
-                    (isOpen ? "" : "hidden")
+                    `fixed flex flex-col px-8 mt-[75px] w-[60%] md:w-full right-0 h-screen bg-white md:px-12 nav-items ` +
+                    (isOpen ? "z-50" : "hidden -z-50")
                 }
             >
                 <div className="flex flex-col gap-10 pt-5 pb-10 nav-link h-max">
