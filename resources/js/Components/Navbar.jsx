@@ -2,6 +2,21 @@ import React from "react";
 import NavLink from "./NavLink";
 
 const Navbar = ({ currenPath }) => {
+    const handleWhatsappClick = () => {
+        const phoneNumber = "62881025285404";
+        const chat = "Halo";
+        window.open(
+            "https://api.whatsapp.com/send?phone=" +
+                phoneNumber +
+                "&text=" +
+                encodeURIComponent(chat)
+        );
+    };
+
+    const handleInstagramClick = () => {
+        window.open("https://www.instagram.com/studioi27architect");
+    };
+
     return (
         <div className="fixed w-[320px] h-screen py-[64px] bg-[#EEEEEE] Navbar hidden lg:block">
             <div className="flex flex-col items-center justify-between h-full items">
@@ -31,18 +46,24 @@ const Navbar = ({ currenPath }) => {
                     </NavLink>
                 </div>
                 <div className="flex gap-8 social-media">
-                    <div className="duration-300 ig hover:scale-125 hover:duration-300 hover:cursor-pointer">
+                    <button
+                        onClick={handleInstagramClick}
+                        className="duration-300 ig hover:scale-125 hover:duration-300 hover:cursor-pointer"
+                    >
                         <img
                             src="../storage/img/icon/mdi_instagram.svg"
                             alt="STUDIO I27 INSTAGRAM"
                         />
-                    </div>
-                    <div className="duration-300 whatsapp ig hover:scale-125 hover:duration-300 hover:cursor-pointer">
+                    </button>
+                    <button
+                        onClick={handleWhatsappClick}
+                        className="duration-300 whatsapp ig hover:scale-125 hover:duration-300 hover:cursor-pointer"
+                    >
                         <img
                             src="../storage/img/icon/mdi_whatsapp.svg"
                             alt="STUDIO I27 INSTAGRAM"
                         />
-                    </div>
+                    </button>
                 </div>
             </div>
         </div>
