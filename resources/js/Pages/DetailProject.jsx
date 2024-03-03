@@ -23,7 +23,7 @@ const DetailProject = (props) => {
     return (
         <>
             <PageLayout title={project.nama_project} currentPath={"details"}>
-                <ContainerLayout className="h-screen">
+                <ContainerLayout className="lg:h-screen">
                     <div className="flex flex-col h-full grid-cols-12 gap-5 md:gap-10 lg:grid">
                         <div className="col-span-6 project-image">
                             <img
@@ -32,7 +32,7 @@ const DetailProject = (props) => {
                                 className="object-cover object-center h-full"
                             />
                         </div>
-                        <div className="flex flex-col justify-between h-full col-span-6 lg:gap-0 project-detail">
+                        <div className="flex flex-col h-full col-span-6 gap-10 lg:justify-between lg:gap-0 project-detail">
                             <div className="flex flex-col gap-6 text-detail">
                                 <div className="flex flex-col gap-2 md:gap-3 project-name">
                                     <h1 className="text-2xl md:text-4xl">
