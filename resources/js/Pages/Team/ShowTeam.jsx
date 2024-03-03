@@ -22,7 +22,7 @@ const ShowTeam = ({ auth, team }) => {
                 <div className="flex p-8">
                     <img
                         src={`../storage/img/team/${team.foto}`}
-                        alt="team"
+                        alt="Studio I27 team"
                         className="object-cover object-center h-64 w-96"
                         loading="lazy"
                     />

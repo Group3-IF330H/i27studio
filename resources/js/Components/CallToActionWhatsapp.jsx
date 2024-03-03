@@ -30,13 +30,13 @@ const CallToActionWhatsapp = () => {
                 <img
                     className="absolute inset-0 object-cover w-full h-full transition duration-300 opacity-100 group-hover:opacity-0"
                     src="../storage/img/icon/whatsappNew.svg"
-                    alt="STUDIO I27 INSTAGRAM"
+                    alt="STUDIO I27 WHATSAPP"
                     display="block"
                 />
                 <img
                     className="absolute inset-0 object-cover w-full h-full transition duration-300 opacity-0 group-hover:opacity-100"
                     src="../storage/img/icon/whatsappWhite.svg"
-                    alt="STUDIO I27 INSTAGRAM"
+                    alt="STUDIO I27 WHATSAPP"
                     display="none"
                 />
             </div>

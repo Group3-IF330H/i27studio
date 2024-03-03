@@ -98,7 +98,7 @@ const ShowProject = ({ auth, project, category, client }) => {
                 <div className="flex p-8">
                     <img
                         src={`../storage/img/projects/${project.gambar_project}`}
-                        alt="logo_client"
+                        alt="Studio I27 project"
                         className="h-16"
                         loading="lazy"
                     />

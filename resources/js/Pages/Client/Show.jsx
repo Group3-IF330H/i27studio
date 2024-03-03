@@ -21,7 +21,7 @@ export default function ShowClient({ auth, client }) {
                 <div className="flex p-8">
                     <img
                         src={`../storage/img/clients/${client.logo_client}`}
-                        alt="logo_client"
+                        alt="Studio I27 client"
                         className="h-16"
                     />
                 </div>

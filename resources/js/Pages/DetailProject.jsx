@@ -28,7 +28,7 @@ const DetailProject = (props) => {
                         <div className="col-span-6 project-image">
                             <img
                                 src={`../storage/img/projects/${project.gambar_project}`}
-                                alt=""
+                                alt={`Studio I27 ${project.nama_project} Project`}
                                 className="object-cover object-center h-full"
                             />
                         </div>
@@ -57,7 +57,7 @@ const DetailProject = (props) => {
                                     <div className="flex items-center gap-3 client">
                                         <img
                                             src={`../storage/img/clients/${project.client.logo_client}`}
-                                            alt=""
+                                            alt={`Studio I27 ${project.client.nama_client} Logo`}
                                             className="object-cover object-center h-10 md:h-16"
                                         />
                                         <p className="md:text-2xl text-lg text-[#f24c03] font-light">
@@ -104,7 +104,7 @@ const DetailProject = (props) => {
                         </button>
                         <img
                             src={`../storage/img/projects/${project.gambar_project}`}
-                            alt=""
+                            alt={`Studio I27 ${project.nama_project} Project`}
                             className="object-contain max-w-full max-h-full"
                         />
                     </div>

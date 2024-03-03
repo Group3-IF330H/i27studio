@@ -116,7 +116,7 @@ const ClientProjects = (props) => {
                     <div className="detail-logo">
                         <img
                             src={`../storage/img/clients/${props.projects.data[0].client.logo_client}`}
-                            alt=""
+                            alt={`Studio I27 ${props.client} Logo`}
                             className="w-32"
                         />
                     </div>
@@ -138,7 +138,7 @@ const ClientProjects = (props) => {
                             <div className="absolute inset-0 bg-gradient-to-t from-black from-1% to-transparent to-99% opacity-70 overlay"></div>
                             <img
                                 src={`../storage/img/projects/${project.gambar_project}`}
-                                alt="Studio I27 Highlighted Project"
+                                alt="Studio I27 Project"
                                 className="object-cover w-full h-full"
                             />
 

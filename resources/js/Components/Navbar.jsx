@@ -61,7 +61,7 @@ const Navbar = ({ currenPath }) => {
                     >
                         <img
                             src="../storage/img/icon/mdi_whatsapp.svg"
-                            alt="STUDIO I27 INSTAGRAM"
+                            alt="STUDIO I27 WHATSAPP"
                         />
                     </button>
                 </div>
