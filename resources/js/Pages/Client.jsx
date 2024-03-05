@@ -43,6 +43,7 @@ const Client = (props) => {
                                         className="w-32 p-6 bg-white 2xl:w-40"
                                         src={`../storage/img/clients/${client.logo_client}`}
                                         alt={`Studio I27 ${client.name_client} Logo`}
+                                        loading="lazy"
                                     />
                                 </div>
                             ))}

@@ -76,14 +76,6 @@ const Homepage = (props) => {
                                 into timeless structures that inspire and
                                 elevate the art of architecture.
                             </h1>
-                            <h1 className="text-xs text-center md:text-base lg:col-span-11 opacity-70 lg:text-justify">
-                                Since 2012 we have served all kinds of design
-                                plans from developers and custom projects
-                                throughout Indonesia, and are still continuing
-                                to this day. explore our projects and discover a
-                                world where creativity and precision converge to
-                                redefine architectural possibilities.
-                            </h1>
                         </div>
                         <div className="flex items-end justify-between bottom-section">
                             <div className="hidden gap-2 lg:flex arrow-button">

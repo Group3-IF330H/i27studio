@@ -30,6 +30,7 @@ const DetailProject = (props) => {
                                 src={`../storage/img/projects/${project.gambar_project}`}
                                 alt={`Studio I27 ${project.nama_project} Project`}
                                 className="object-cover object-center h-full"
+                                loading="lazy"
                             />
                         </div>
                         <div className="flex flex-col h-full col-span-6 gap-10 lg:justify-between lg:gap-0 project-detail">
@@ -106,6 +107,7 @@ const DetailProject = (props) => {
                             src={`../storage/img/projects/${project.gambar_project}`}
                             alt={`Studio I27 ${project.nama_project} Project`}
                             className="object-contain max-w-full max-h-full"
+                            loading="lazy"
                         />
                     </div>
                 </div>

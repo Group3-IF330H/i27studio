@@ -118,6 +118,7 @@ const ClientProjects = (props) => {
                             src={`../storage/img/clients/${props.projects.data[0].client.logo_client}`}
                             alt={`Studio I27 ${props.client} Logo`}
                             className="w-32"
+                            loading="lazy"
                         />
                     </div>
                 </div>
@@ -140,6 +141,7 @@ const ClientProjects = (props) => {
                                 src={`../storage/img/projects/${project.gambar_project}`}
                                 alt="Studio I27 Project"
                                 className="object-cover w-full h-full"
+                                loading="lazy"
                             />
 
                             <div className="absolute bottom-0 left-0 p-4 text-white">

@@ -7,6 +7,7 @@ import Heading from "@/Components/Heading";
 import Paginator from "@/Components/Paginator";
 import { NoSymbolIcon } from "@heroicons/react/24/outline";
 import { Link } from "@inertiajs/react";
+import { motion } from "framer-motion";
 
 const Projects = (props) => {
     const category = props.category;
@@ -136,6 +137,7 @@ const Projects = (props) => {
                                             src={`../storage/img/projects/${project.gambar_project}`}
                                             alt="Studio I27 Highlighted Project"
                                             className="object-cover w-full h-full"
+                                            loading="lazy"
                                         />
 
                                         <div className="absolute bottom-0 left-0 p-4 text-white">

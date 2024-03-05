@@ -14,7 +14,7 @@ const FilterBySection = ({ data, title, handleCategorySelect }) => {
                     >
                         <input
                             type="checkbox"
-                            className="apperance-none checked:bg-[#f24c03] active:bg-[#f24c03] focus:bg-[#f24c03] focus:ring-[#f24c03]"
+                            className="apperance-none checked:bg-[#f24c03] active:bg-[#f24c03] focus:bg-[#f24c03] focus:ring-[#f24c03] text-[#f24c03] w-6 h-6"
                             id={data.id}
                             name={data.nama_client || data.nama_category}
                             onChange={() =>

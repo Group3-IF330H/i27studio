@@ -44,6 +44,7 @@ const VisionMission = () => {
                         src="../storage/img/about/kantor/K-1.jpeg"
                         alt=""
                         className="object-cover object-center h-full 2xl:w-3/4"
+                        loading="lazy"
                     />
                 </div>
                 <div className="w-full h-[60%] image2 absolute right-0 flex justify-end z-30 bottom-0">
@@ -51,6 +52,7 @@ const VisionMission = () => {
                         src="../storage/img/about/kantor/K-2.jpeg"
                         alt=""
                         className="object-cover object-center h-full 2xl:w-3/4"
+                        loading="lazy"
                     />
                 </div>
             </div>
