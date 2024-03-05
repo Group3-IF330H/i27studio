@@ -53,7 +53,7 @@ const Client = (props) => {
                     <div className="justify-center w-full grid-cols-12 lg:w-full lg:grid lg:h-full h-[70%] items-center">
                         <div className="flex items-center justify-center col-span-6 gap-4 text-white h-[70%]">
                             <div className="flex flex-col items-center grid-cols-12 md:w-full lg:w-full lg:grid">
-                                <h1 className="col-span-12 text-2xl font-semibold text-center md:text-4xl md:w-3/4 lg:text-start 2xl:text-5xl">
+                                <h1 className="col-span-12 text-2xl font-semibold text-center md:text-4xl md:w-full lg:text-start 2xl:text-5xl">
                                     Meet Our Esteemed Partners and Clients
                                 </h1>
                                 <h1 className="col-span-11 mt-4 text-xs text-center lg:w-full md:w-1/2 md:text-base lg:mt-6 text-md lg:text-start opacity-70">

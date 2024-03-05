@@ -3,7 +3,7 @@ import React from "react";
 const Heading = ({ pageName, pageDescription }) => {
     return (
         <div
-            className={`heading ` + pageDescription == null ? "mb-10" : "mb-4"}
+            className={`heading ` + pageDescription == null ? "mb-10" : "mb-10"}
         >
             <h1 className="text-[#f24D03] text-xl 2xl:text-2xl font-medium">
                 {pageName}

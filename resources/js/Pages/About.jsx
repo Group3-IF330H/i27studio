@@ -13,7 +13,9 @@ const About = (props) => {
             <ContainerLayout>
                 <Heading
                     pageName={"ABOUT US"}
-                    pageDescription={"Let's Get To Know Each Other"}
+                    pageDescription={
+                        "Since 2012 we have served all kinds of design plans from developers and custom projects throughout Indonesia, and are still continuing to this day. explore our projects and discover a world where creativity and precision converge to redefine architectural possibilities."
+                    }
                 />
                 <VisionMission />
                 <ServiceSection />

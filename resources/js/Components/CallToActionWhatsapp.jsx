@@ -12,7 +12,7 @@ const styles = {
 const CallToActionWhatsapp = () => {
     const handleWhatsappClick = () => {
         const phoneNumber = "62881025285404";
-        const chat = "testing";
+        const chat = "Halo";
         window.location.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
             chat
         )}`;

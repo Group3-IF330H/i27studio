@@ -131,7 +131,7 @@ const ClientProjects = (props) => {
                 <div className="flex flex-col grid-cols-2 gap-4 mt-8 md:grid">
                     {paginateData.map((project, index) => (
                         <Link
-                            href={`/project/${project.nama_project}`}
+                            href={`/detail-project/${project.nama_project}`}
                             className="relative duration-200 h-96 hover:scale-[95%] hover:cursor-pointer hover:shadow-2xl"
                             key={index}
                         >

@@ -25,7 +25,11 @@ const FilterDropdown = ({
                     setIsFilterShown={setIsFilterShown}
                     isFilterShown={isFilterShown}
                 />
-                <SaveFilterButton handleSaveFilter={handleSaveFilter} />
+                <SaveFilterButton
+                    handleSaveFilter={handleSaveFilter}
+                    isFilterShown={isFilterShown}
+                    setIsFilterShown={setIsFilterShown}
+                />
             </div>
         </div>
     );

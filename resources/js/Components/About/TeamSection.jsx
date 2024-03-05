@@ -23,7 +23,7 @@ const TeamSection = ({ data }) => {
                             <img
                                 src={`../storage/img/team/${team.foto}`}
                                 alt=""
-                                className="object-cover object-center w-full h-full"
+                                className="object-cover object-top w-full h-full"
                             />
                         </div>
                         <div className="flex flex-col gap-1 mt-3 team-detail">

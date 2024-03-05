@@ -70,7 +70,7 @@ const Homepage = (props) => {
                 <ContainerLayout className="h-screen">
                     <div className="flex flex-col justify-between h-full home-item">
                         <div className="flex flex-col grid-cols-12 gap-4 text-white lg:grid heading">
-                            <h1 className="col-span-12 text-lg font-semibold text-center lg:text-start md:text-3xl lg:text-4xl">
+                            <h1 className="col-span-12 text-lg font-semibold text-center lg:text-start md:text-3xl 2xl:text-4xl">
                                 Welcome to Studio I27, where innovative design
                                 meets precision engineering to transform visions
                                 into timeless structures that inspire and
@@ -91,18 +91,18 @@ const Homepage = (props) => {
                                 <NextButton nextSlide={nextSlide} />
                             </div>
 
-                            <div className="relative flex flex-col items-end lg:w-[80%] w-[100%] gap-8">
+                            <div className="relative flex flex-col items-end lg:w-[80%] w-[100%] gap-4 2xl:gap-8">
                                 <div className="w-full text-white text-end detail-project">
                                     {project[currentSlide] && (
-                                        <div className="flex flex-col gap-2">
-                                            <h2 className="font-medium text-center lg:text-end md:text-3xl">
+                                        <div className="flex flex-col gap-1 2xl:gap-2">
+                                            <h2 className="font-medium text-center lg:text-end md:text-2xl 2xl:text-3xl">
                                                 {project[currentSlide].client
                                                     .nama_client +
                                                     " " +
                                                     project[currentSlide]
                                                         .nama_project}
                                             </h2>
-                                            <h2 className="font-light text-center md:text-2xl lg:text-end">
+                                            <h2 className="font-light text-center 2xl:text-2xl lg:text-end">
                                                 {project[currentSlide].client
                                                     .lokasi_client +
                                                     ", Indonesia"}

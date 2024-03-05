@@ -2,7 +2,7 @@ import React from "react";
 
 const VisionMission = () => {
     return (
-        <div className="grid-cols-12 gap-20 mt-10 xl:grid xl:mt-16 vision-mission-section">
+        <div className="w-full grid-cols-12 mt-10 gap-14 xl:grid xl:mt-16 vision-mission-section">
             <div className="flex flex-col col-span-6 gap-8 vision-mission">
                 <div className="vision">
                     <h1 className="text-3xl font-semibold">Vision</h1>
@@ -39,18 +39,18 @@ const VisionMission = () => {
                 </div>
             </div>
             <div className="relative h-full col-span-6 image-about">
-                <div className="w-[60%] h-[60%] image1 bg-slate-400 absolute top-0 left-0">
+                <div className="w-full h-[60%] image1 absolute top-0 left-0 z-50">
                     <img
-                        src="../storage/img/about/kantor/K-04.jpg"
+                        src="../storage/img/about/kantor/K-1.jpeg"
                         alt=""
-                        className="object-cover object-center w-full h-full"
+                        className="object-cover object-center h-full 2xl:w-3/4"
                     />
                 </div>
-                <div className="w-[60%] h-[60%] image2 bg-slate-400 absolute bottom-0 right-0">
+                <div className="w-full h-[60%] image2 absolute right-0 flex justify-end z-30 bottom-0">
                     <img
-                        src="../storage/img/about/kantor/K-09.jpg"
+                        src="../storage/img/about/kantor/K-2.jpeg"
                         alt=""
-                        className="object-cover object-center w-full h-full"
+                        className="object-cover object-center h-full 2xl:w-3/4"
                     />
                 </div>
             </div>
