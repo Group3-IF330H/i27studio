@@ -133,6 +133,10 @@ const ShowProject = ({ auth, project, category, client }) => {
                     />
                 </div>
             ),
+            sortFunction: (a, b) => {
+                if (a.is_highlight === b.is_highlight) return 0;
+                return a.is_highlight ? -1 : 1;
+            },
             sortable: true,
             width: "max",
         },
